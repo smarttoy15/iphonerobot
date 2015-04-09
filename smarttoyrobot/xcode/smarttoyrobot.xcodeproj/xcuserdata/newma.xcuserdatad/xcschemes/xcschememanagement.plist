@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>smarttoycontroller.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>smarttoyrobot.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D30537911AB2A90700467896</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D30537AA1AB2A90800467896</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E2FD961ACD3D6B00F6FB1F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E2FDAE1ACD3D6B00F6FB1F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3F210F91ABC81A7006AC27D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3F211111ABC81A8006AC27D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
