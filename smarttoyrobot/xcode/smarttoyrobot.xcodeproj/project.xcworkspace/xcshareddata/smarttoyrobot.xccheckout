@@ -10,29 +10,36 @@
 	<string>smarttoyrobot</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>ade04681-8ff6-4dd1-a485-42da9fdc36b1</key>
-		<string>https://192.168.120.2/svn/smarttoy</string>
+		<key>ade04681-8ff6-4dd1-a485-42da9fdc36b1++5761</key>
+		<string>https://192.168.120.2/svn/smarttoy/trunk/iphone_code</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>trunk/iphone_code/smarttoyrobot/robot/xcode/smarttoyrobot.xcodeproj</string>
+	<string>smarttoyrobot/xcode/smarttoyrobot.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>ade04681-8ff6-4dd1-a485-42da9fdc36b1</key>
-		<string>../../../../../../..</string>
+		<key>ade04681-8ff6-4dd1-a485-42da9fdc36b1++5761</key>
+		<string>../../../..</string>
 	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>ade04681-8ff6-4dd1-a485-42da9fdc36b1++5761</key>
+		<string>https://192.168.120.2/svn/smarttoy</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://192.168.120.2/svn/smarttoy/trunk/iphone_code/smarttoyrobot/xcode/smarttoyrobot.xcodeproj</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>ade04681-8ff6-4dd1-a485-42da9fdc36b1</string>
+	<string>ade04681-8ff6-4dd1-a485-42da9fdc36b1++5761</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>ade04681-8ff6-4dd1-a485-42da9fdc36b1</string>
+			<string>ade04681-8ff6-4dd1-a485-42da9fdc36b1++5761</string>
 			<key>IDESourceControlWCCName</key>
-			<string>smarttoy</string>
+			<string>iphone_code</string>
 		</dict>
 	</array>
 </dict>
