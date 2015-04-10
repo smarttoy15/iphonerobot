@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3DD4EC21AB6C98D0018A61D /* sttcpserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4EBF1AB6C98D0018A61D /* sttcpserver.m */; };
+		D3DD4EC31AB6C98D0018A61D /* sttcpsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4EC01AB6C98D0018A61D /* sttcpsocket.m */; };
+		D3DD4ED31AB80A2A0018A61D /* stnetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4ED21AB80A2A0018A61D /* stnetwork.m */; };
+		D3DD4EDB1AB8295F0018A61D /* studpsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4EDA1AB8295F0018A61D /* studpsocket.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D30538031AB2A93400467896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D30537EE1AB2A93400467896 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D30537F51AB2A93400467896;
+			remoteInfo = smarttoysdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D30537F41AB2A93400467896 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D305386A1AB2BAA400467896 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30538701AB2BAD600467896 /* smarttoysdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smarttoysdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30538711AB2BAED00467896 /* libsmarttoysdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsmarttoysdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3DD4EBA1AB6C97E0018A61D /* sttcprecieve_i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcprecieve_i.h; sourceTree = "<group>"; };
+		D3DD4EBB1AB6C97E0018A61D /* sttcpserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcpserver.h; sourceTree = "<group>"; };
+		D3DD4EBC1AB6C97E0018A61D /* sttcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcpsocket.h; sourceTree = "<group>"; };
+		D3DD4EBF1AB6C98D0018A61D /* sttcpserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttcpserver.m; sourceTree = "<group>"; };
+		D3DD4EC01AB6C98D0018A61D /* sttcpsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttcpsocket.m; sourceTree = "<group>"; };
+		D3DD4ED01AB80A220018A61D /* stnetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stnetwork.h; sourceTree = "<group>"; };
+		D3DD4ED21AB80A2A0018A61D /* stnetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stnetwork.m; sourceTree = "<group>"; };
+		D3DD4ED91AB828850018A61D /* studprecieve_i.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = studprecieve_i.h; sourceTree = "<group>"; };
+		D3DD4EDA1AB8295F0018A61D /* studpsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = studpsocket.m; sourceTree = "<group>"; };
+		D3DD4EDC1AB829650018A61D /* studpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = studpsocket.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D30537F31AB2A93400467896 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30537FE1AB2A93400467896 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D30537ED1AB2A93400467896 = {
+			isa = PBXGroup;
+			children = (
+				D30538641AB2BAA400467896 /* include */,
+				D30538661AB2BAA400467896 /* src */,
+				D30538691AB2BAA400467896 /* tests */,
+				D30538721AB2BAFF00467896 /* products */,
+			);
+			sourceTree = "<group>";
+		};
+		D30538641AB2BAA400467896 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4ECF1AB80A220018A61D /* network */,
+				D3DD4EB91AB6C97E0018A61D /* socket */,
+			);
+			name = include;
+			path = ../include;
+			sourceTree = "<group>";
+		};
+		D30538661AB2BAA400467896 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4ED11AB80A2A0018A61D /* network */,
+				D3DD4EBE1AB6C98D0018A61D /* socket */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		D30538691AB2BAA400467896 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				D305386A1AB2BAA400467896 /* Info.plist */,
+			);
+			name = tests;
+			path = ../tests;
+			sourceTree = "<group>";
+		};
+		D30538721AB2BAFF00467896 /* products */ = {
+			isa = PBXGroup;
+			children = (
+				D30538701AB2BAD600467896 /* smarttoysdkTests.xctest */,
+				D30538711AB2BAED00467896 /* libsmarttoysdk.a */,
+			);
+			name = products;
+			sourceTree = "<group>";
+		};
+		D3DD4EB91AB6C97E0018A61D /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4EDC1AB829650018A61D /* studpsocket.h */,
+				D3DD4EBA1AB6C97E0018A61D /* sttcprecieve_i.h */,
+				D3DD4EBB1AB6C97E0018A61D /* sttcpserver.h */,
+				D3DD4EBC1AB6C97E0018A61D /* sttcpsocket.h */,
+				D3DD4ED91AB828850018A61D /* studprecieve_i.h */,
+			);
+			path = socket;
+			sourceTree = "<group>";
+		};
+		D3DD4EBE1AB6C98D0018A61D /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4EDA1AB8295F0018A61D /* studpsocket.m */,
+				D3DD4EBF1AB6C98D0018A61D /* sttcpserver.m */,
+				D3DD4EC01AB6C98D0018A61D /* sttcpsocket.m */,
+			);
+			path = socket;
+			sourceTree = "<group>";
+		};
+		D3DD4ECF1AB80A220018A61D /* network */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4ED01AB80A220018A61D /* stnetwork.h */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		D3DD4ED11AB80A2A0018A61D /* network */ = {
+			isa = PBXGroup;
+			children = (
+				D3DD4ED21AB80A2A0018A61D /* stnetwork.m */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D30537F51AB2A93400467896 /* smarttoysdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D305380A1AB2A93400467896 /* Build configuration list for PBXNativeTarget "smarttoysdk" */;
+			buildPhases = (
+				D30537F21AB2A93400467896 /* Sources */,
+				D30537F31AB2A93400467896 /* Frameworks */,
+				D30537F41AB2A93400467896 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = smarttoysdk;
+			productName = smarttoysdk;
+			productReference = D30538711AB2BAED00467896 /* libsmarttoysdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D30538001AB2A93400467896 /* smarttoysdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D305380D1AB2A93400467896 /* Build configuration list for PBXNativeTarget "smarttoysdkTests" */;
+			buildPhases = (
+				D30537FD1AB2A93400467896 /* Sources */,
+				D30537FE1AB2A93400467896 /* Frameworks */,
+				D30537FF1AB2A93400467896 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D30538041AB2A93400467896 /* PBXTargetDependency */,
+			);
+			name = smarttoysdkTests;
+			productName = smarttoysdkTests;
+			productReference = D30538701AB2BAD600467896 /* smarttoysdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D30537EE1AB2A93400467896 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = smarttoy;
+				TargetAttributes = {
+					D30537F51AB2A93400467896 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					D30538001AB2A93400467896 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = D30537F11AB2A93400467896 /* Build configuration list for PBXProject "smarttoysdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D30537ED1AB2A93400467896;
+			productRefGroup = D30537ED1AB2A93400467896;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D30537F51AB2A93400467896 /* smarttoysdk */,
+				D30538001AB2A93400467896 /* smarttoysdkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D30537FF1AB2A93400467896 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D30537F21AB2A93400467896 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3DD4EC21AB6C98D0018A61D /* sttcpserver.m in Sources */,
+				D3DD4EDB1AB8295F0018A61D /* studpsocket.m in Sources */,
+				D3DD4EC31AB6C98D0018A61D /* sttcpsocket.m in Sources */,
+				D3DD4ED31AB80A2A0018A61D /* stnetwork.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D30537FD1AB2A93400467896 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D30538041AB2A93400467896 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D30537F51AB2A93400467896 /* smarttoysdk */;
+			targetProxy = D30538031AB2A93400467896 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D30538081AB2A93400467896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D30538091AB2A93400467896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D305380B1AB2A93400467896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D305380C1AB2A93400467896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D305380E1AB2A93400467896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ../tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D305380F1AB2A93400467896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ../tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D30537F11AB2A93400467896 /* Build configuration list for PBXProject "smarttoysdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30538081AB2A93400467896 /* Debug */,
+				D30538091AB2A93400467896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D305380A1AB2A93400467896 /* Build configuration list for PBXNativeTarget "smarttoysdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D305380B1AB2A93400467896 /* Debug */,
+				D305380C1AB2A93400467896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D305380D1AB2A93400467896 /* Build configuration list for PBXNativeTarget "smarttoysdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D305380E1AB2A93400467896 /* Debug */,
+				D305380F1AB2A93400467896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D30537EE1AB2A93400467896 /* Project object */;
+}

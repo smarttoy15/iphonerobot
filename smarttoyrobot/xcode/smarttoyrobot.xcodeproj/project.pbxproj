@@ -1,0 +1,672 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3E2FE161ACD41C600F6FB1F /* libsmarttoysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */; };
+		D3E2FE171ACD41F000F6FB1F /* robotlaunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FE0E1ACD418100F6FB1F /* robotlaunch.xib */; };
+		D3E2FE181ACD41F000F6FB1F /* robot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDDB1ACD3FFC00F6FB1F /* robot.storyboard */; };
+		D3E2FE191ACD41F000F6FB1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDDD1ACD3FFC00F6FB1F /* Images.xcassets */; };
+		D3E2FE201ACD425600F6FB1F /* srdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */; };
+		D3E2FE231ACD425600F6FB1F /* srmoveprotocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */; };
+		D3E2FE261ACD425600F6FB1F /* viewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDD01ACD3FFC00F6FB1F /* viewcontroller.m */; };
+		D3E2FE2A1ACD42E300F6FB1F /* libsmarttoysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */; };
+		D3E2FE2B1ACD42F200F6FB1F /* controllerlaunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD31ACD3FFC00F6FB1F /* controllerlaunch.xib */; };
+		D3E2FE2C1ACD42F200F6FB1F /* controller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD51ACD3FFC00F6FB1F /* controller.storyboard */; };
+		D3E2FE2D1ACD42F200F6FB1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD71ACD3FFC00F6FB1F /* Images.xcassets */; };
+		D3E2FE301ACD43DE00F6FB1F /* viewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */; };
+		D3E2FE361ACD43E500F6FB1F /* srdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */; };
+		D3E2FE391ACD43E500F6FB1F /* srmoveprotocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */; };
+		D3E2FE3E1ACD725900F6FB1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3B1ACD725900F6FB1F /* main.m */; };
+		D3E2FE3F1ACD725900F6FB1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3B1ACD725900F6FB1F /* main.m */; };
+		D3E2FE401ACD725900F6FB1F /* appdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3C1ACD725900F6FB1F /* appdelegate.m */; };
+		D3E2FE411ACD725900F6FB1F /* appdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3C1ACD725900F6FB1F /* appdelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3E2FE0B1ACD403D00F6FB1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D30538711AB2BAED00467896;
+			remoteInfo = smarttoysdk;
+		};
+		D3E2FE141ACD41C100F6FB1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D30537F51AB2A93400467896;
+			remoteInfo = smarttoysdk;
+		};
+		D3E2FE281ACD42DE00F6FB1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D30537F51AB2A93400467896;
+			remoteInfo = smarttoysdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D3E2FDBF1ACD3FFC00F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E2FDC51ACD3FFC00F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E2FDC61ACD3FFC00F6FB1F /* smarttoycontrollerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smarttoycontrollerTests.m; sourceTree = "<group>"; };
+		D3E2FDC81ACD3FFC00F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E2FDC91ACD3FFC00F6FB1F /* smarttoyrobotTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smarttoyrobotTests.m; sourceTree = "<group>"; };
+		D3E2FDCA1ACD3FFC00F6FB1F /* smarttoyrobot.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = smarttoyrobot.pch; path = ../smarttoyrobot.pch; sourceTree = "<group>"; };
+		D3E2FDCD1ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		D3E2FDCF1ACD3FFC00F6FB1F /* viewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewcontroller.h; sourceTree = "<group>"; };
+		D3E2FDD01ACD3FFC00F6FB1F /* viewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewcontroller.m; sourceTree = "<group>"; };
+		D3E2FDD41ACD3FFC00F6FB1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/controllerlaunch.xib; sourceTree = "<group>"; };
+		D3E2FDD61ACD3FFC00F6FB1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/controller.storyboard; sourceTree = "<group>"; };
+		D3E2FDD71ACD3FFC00F6FB1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D3E2FDDC1ACD3FFC00F6FB1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/robot.storyboard; sourceTree = "<group>"; };
+		D3E2FDDD1ACD3FFC00F6FB1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D3E2FDDE1ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readme.txt; path = ../readme.txt; sourceTree = "<group>"; };
+		D3E2FDE21ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		D3E2FDE41ACD3FFC00F6FB1F /* viewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewcontroller.h; sourceTree = "<group>"; };
+		D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewcontroller.m; sourceTree = "<group>"; };
+		D3E2FDE81ACD3FFC00F6FB1F /* srdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srdevice.h; sourceTree = "<group>"; };
+		D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srdevice.m; sourceTree = "<group>"; };
+		D3E2FDEB1ACD3FFC00F6FB1F /* srcommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srcommand.h; sourceTree = "<group>"; };
+		D3E2FDEC1ACD3FFC00F6FB1F /* srmoveprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srmoveprotocol.h; sourceTree = "<group>"; };
+		D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srmoveprotocol.m; sourceTree = "<group>"; };
+		D3E2FDEE1ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smarttoysdk.xcodeproj; path = ../../smarttoysdk/xcode/smarttoysdk.xcodeproj; sourceTree = "<group>"; };
+		D3E2FE0D1ACD411200F6FB1F /* smarttoycontroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smarttoycontroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E2FE0F1ACD418200F6FB1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/robotlaunch.xib; sourceTree = "<group>"; };
+		D3E2FE3A1ACD486C00F6FB1F /* smarttoyrobot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smarttoyrobot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E2FE3B1ACD725900F6FB1F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3E2FE3C1ACD725900F6FB1F /* appdelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appdelegate.m; sourceTree = "<group>"; };
+		D3E2FE3D1ACD725900F6FB1F /* appdelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appdelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D305378F1AB2A90700467896 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE161ACD41C600F6FB1F /* libsmarttoysdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E2FD941ACD3D6B00F6FB1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE2A1ACD42E300F6FB1F /* libsmarttoysdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D30537891AB2A90700467896 = {
+			isa = PBXGroup;
+			children = (
+				D3E2FE061ACD402200F6FB1F /* dependences */,
+				D3E2FDE61ACD3FFC00F6FB1F /* common */,
+				D3E2FDCB1ACD3FFC00F6FB1F /* robot */,
+				D3E2FDE01ACD3FFC00F6FB1F /* controller */,
+				D3E2FDD11ACD3FFC00F6FB1F /* res */,
+				D3E2FDBE1ACD3FFC00F6FB1F /* xcode */,
+				D3E2FDC31ACD3FFC00F6FB1F /* tests */,
+				D3E2FDCA1ACD3FFC00F6FB1F /* smarttoyrobot.pch */,
+				D3E2FDDE1ACD3FFC00F6FB1F /* readme.txt */,
+				D3E2FE0D1ACD411200F6FB1F /* smarttoycontroller.app */,
+				D3E2FE3A1ACD486C00F6FB1F /* smarttoyrobot.app */,
+			);
+			sourceTree = "<group>";
+		};
+		D3E2FDBE1ACD3FFC00F6FB1F /* xcode */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDBF1ACD3FFC00F6FB1F /* Info.plist */,
+			);
+			name = xcode;
+			sourceTree = "<group>";
+		};
+		D3E2FDC31ACD3FFC00F6FB1F /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDC41ACD3FFC00F6FB1F /* controller */,
+				D3E2FDC71ACD3FFC00F6FB1F /* robot */,
+			);
+			name = tests;
+			path = ../tests;
+			sourceTree = "<group>";
+		};
+		D3E2FDC41ACD3FFC00F6FB1F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDC51ACD3FFC00F6FB1F /* Info.plist */,
+				D3E2FDC61ACD3FFC00F6FB1F /* smarttoycontrollerTests.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D3E2FDC71ACD3FFC00F6FB1F /* robot */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDC81ACD3FFC00F6FB1F /* Info.plist */,
+				D3E2FDC91ACD3FFC00F6FB1F /* smarttoyrobotTests.m */,
+			);
+			path = robot;
+			sourceTree = "<group>";
+		};
+		D3E2FDCB1ACD3FFC00F6FB1F /* robot */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDCC1ACD3FFC00F6FB1F /* network */,
+				D3E2FDCD1ACD3FFC00F6FB1F /* readme.txt */,
+				D3E2FDCE1ACD3FFC00F6FB1F /* ui */,
+			);
+			name = robot;
+			path = ../robot;
+			sourceTree = "<group>";
+		};
+		D3E2FDCC1ACD3FFC00F6FB1F /* network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		D3E2FDCE1ACD3FFC00F6FB1F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDCF1ACD3FFC00F6FB1F /* viewcontroller.h */,
+				D3E2FDD01ACD3FFC00F6FB1F /* viewcontroller.m */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		D3E2FDD11ACD3FFC00F6FB1F /* res */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDD21ACD3FFC00F6FB1F /* controller */,
+				D3E2FDD81ACD3FFC00F6FB1F /* robot */,
+			);
+			name = res;
+			path = ../res;
+			sourceTree = "<group>";
+		};
+		D3E2FDD21ACD3FFC00F6FB1F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDD31ACD3FFC00F6FB1F /* controllerlaunch.xib */,
+				D3E2FDD51ACD3FFC00F6FB1F /* controller.storyboard */,
+				D3E2FDD71ACD3FFC00F6FB1F /* Images.xcassets */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D3E2FDD81ACD3FFC00F6FB1F /* robot */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FE0E1ACD418100F6FB1F /* robotlaunch.xib */,
+				D3E2FDDB1ACD3FFC00F6FB1F /* robot.storyboard */,
+				D3E2FDDD1ACD3FFC00F6FB1F /* Images.xcassets */,
+			);
+			path = robot;
+			sourceTree = "<group>";
+		};
+		D3E2FDE01ACD3FFC00F6FB1F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDE11ACD3FFC00F6FB1F /* network */,
+				D3E2FDE21ACD3FFC00F6FB1F /* readme.txt */,
+				D3E2FDE31ACD3FFC00F6FB1F /* ui */,
+			);
+			name = controller;
+			path = ../controller;
+			sourceTree = "<group>";
+		};
+		D3E2FDE11ACD3FFC00F6FB1F /* network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		D3E2FDE31ACD3FFC00F6FB1F /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDE41ACD3FFC00F6FB1F /* viewcontroller.h */,
+				D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		D3E2FDE61ACD3FFC00F6FB1F /* common */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FE3B1ACD725900F6FB1F /* main.m */,
+				D3E2FE3C1ACD725900F6FB1F /* appdelegate.m */,
+				D3E2FE3D1ACD725900F6FB1F /* appdelegate.h */,
+				D3E2FDE71ACD3FFC00F6FB1F /* discovery */,
+				D3E2FDEA1ACD3FFC00F6FB1F /* protocol */,
+				D3E2FDEE1ACD3FFC00F6FB1F /* readme.txt */,
+			);
+			name = common;
+			path = ../common;
+			sourceTree = "<group>";
+		};
+		D3E2FDE71ACD3FFC00F6FB1F /* discovery */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDE81ACD3FFC00F6FB1F /* srdevice.h */,
+				D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */,
+			);
+			path = discovery;
+			sourceTree = "<group>";
+		};
+		D3E2FDEA1ACD3FFC00F6FB1F /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FDEB1ACD3FFC00F6FB1F /* srcommand.h */,
+				D3E2FDEC1ACD3FFC00F6FB1F /* srmoveprotocol.h */,
+				D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		D3E2FE061ACD402200F6FB1F /* dependences */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */,
+			);
+			name = dependences;
+			sourceTree = "<group>";
+		};
+		D3E2FE081ACD403D00F6FB1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D30537911AB2A90700467896 /* smarttoyrobot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30537B51AB2A90800467896 /* Build configuration list for PBXNativeTarget "smarttoyrobot" */;
+			buildPhases = (
+				D305378E1AB2A90700467896 /* Sources */,
+				D305378F1AB2A90700467896 /* Frameworks */,
+				D30537901AB2A90700467896 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3E2FE151ACD41C100F6FB1F /* PBXTargetDependency */,
+			);
+			name = smarttoyrobot;
+			productName = smarttoyrobot;
+			productReference = D3E2FE3A1ACD486C00F6FB1F /* smarttoyrobot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3E2FD961ACD3D6B00F6FB1F /* smarttoycontroller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3E2FDB71ACD3D6C00F6FB1F /* Build configuration list for PBXNativeTarget "smarttoycontroller" */;
+			buildPhases = (
+				D3E2FD931ACD3D6B00F6FB1F /* Sources */,
+				D3E2FD941ACD3D6B00F6FB1F /* Frameworks */,
+				D3E2FD951ACD3D6B00F6FB1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3E2FE291ACD42DE00F6FB1F /* PBXTargetDependency */,
+			);
+			name = smarttoycontroller;
+			productName = smarttoycontroller;
+			productReference = D3E2FE0D1ACD411200F6FB1F /* smarttoycontroller.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D305378A1AB2A90700467896 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = smarttoy;
+				TargetAttributes = {
+					D30537911AB2A90700467896 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					D3E2FD961ACD3D6B00F6FB1F = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = D305378D1AB2A90700467896 /* Build configuration list for PBXProject "smarttoyrobot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D30537891AB2A90700467896;
+			productRefGroup = D30537891AB2A90700467896;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D3E2FE081ACD403D00F6FB1F /* Products */;
+					ProjectRef = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D30537911AB2A90700467896 /* smarttoyrobot */,
+				D3E2FD961ACD3D6B00F6FB1F /* smarttoycontroller */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsmarttoysdk.a;
+			remoteRef = D3E2FE0B1ACD403D00F6FB1F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D30537901AB2A90700467896 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE171ACD41F000F6FB1F /* robotlaunch.xib in Resources */,
+				D3E2FE181ACD41F000F6FB1F /* robot.storyboard in Resources */,
+				D3E2FE191ACD41F000F6FB1F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E2FD951ACD3D6B00F6FB1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE2B1ACD42F200F6FB1F /* controllerlaunch.xib in Resources */,
+				D3E2FE2C1ACD42F200F6FB1F /* controller.storyboard in Resources */,
+				D3E2FE2D1ACD42F200F6FB1F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D305378E1AB2A90700467896 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE201ACD425600F6FB1F /* srdevice.m in Sources */,
+				D3E2FE231ACD425600F6FB1F /* srmoveprotocol.m in Sources */,
+				D3E2FE401ACD725900F6FB1F /* appdelegate.m in Sources */,
+				D3E2FE3E1ACD725900F6FB1F /* main.m in Sources */,
+				D3E2FE261ACD425600F6FB1F /* viewcontroller.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E2FD931ACD3D6B00F6FB1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FE361ACD43E500F6FB1F /* srdevice.m in Sources */,
+				D3E2FE391ACD43E500F6FB1F /* srmoveprotocol.m in Sources */,
+				D3E2FE411ACD725900F6FB1F /* appdelegate.m in Sources */,
+				D3E2FE3F1ACD725900F6FB1F /* main.m in Sources */,
+				D3E2FE301ACD43DE00F6FB1F /* viewcontroller.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3E2FE151ACD41C100F6FB1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = smarttoysdk;
+			targetProxy = D3E2FE141ACD41C100F6FB1F /* PBXContainerItemProxy */;
+		};
+		D3E2FE291ACD42DE00F6FB1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = smarttoysdk;
+			targetProxy = D3E2FE281ACD42DE00F6FB1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D3E2FDD31ACD3FFC00F6FB1F /* controllerlaunch.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E2FDD41ACD3FFC00F6FB1F /* Base */,
+			);
+			name = controllerlaunch.xib;
+			sourceTree = "<group>";
+		};
+		D3E2FDD51ACD3FFC00F6FB1F /* controller.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E2FDD61ACD3FFC00F6FB1F /* Base */,
+			);
+			name = controller.storyboard;
+			sourceTree = "<group>";
+		};
+		D3E2FDDB1ACD3FFC00F6FB1F /* robot.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E2FDDC1ACD3FFC00F6FB1F /* Base */,
+			);
+			name = robot.storyboard;
+			sourceTree = "<group>";
+		};
+		D3E2FE0E1ACD418100F6FB1F /* robotlaunch.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E2FE0F1ACD418200F6FB1F /* Base */,
+			);
+			name = robotlaunch.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D30537B31AB2A90800467896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../smarttoyrobot.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../common/src,
+					../../smarttoysdk/include,
+				);
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D30537B41AB2A90800467896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../smarttoyrobot.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../common/src,
+					../../smarttoysdk/include,
+				);
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D30537B61AB2A90800467896 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D30537B71AB2A90800467896 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D3E2FDB81ACD3D6C00F6FB1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D3E2FDB91ACD3D6C00F6FB1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D305378D1AB2A90700467896 /* Build configuration list for PBXProject "smarttoyrobot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30537B31AB2A90800467896 /* Debug */,
+				D30537B41AB2A90800467896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30537B51AB2A90800467896 /* Build configuration list for PBXNativeTarget "smarttoyrobot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30537B61AB2A90800467896 /* Debug */,
+				D30537B71AB2A90800467896 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3E2FDB71ACD3D6C00F6FB1F /* Build configuration list for PBXNativeTarget "smarttoycontroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E2FDB81ACD3D6C00F6FB1F /* Debug */,
+				D3E2FDB91ACD3D6C00F6FB1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D305378A1AB2A90700467896 /* Project object */;
+}
