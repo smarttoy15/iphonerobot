@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72C1C16A1AD7B54200FBE5BD /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C1C1691AD7B54200FBE5BD /* robot.png */; };
+		72C1C16B1AD7B54200FBE5BD /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C1C1691AD7B54200FBE5BD /* robot.png */; };
+		72C1C1721AD7B5AD00FBE5BD /* srviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C1C16F1AD7B5AD00FBE5BD /* srviewcontroller.m */; };
+		72C1C1731AD7B5AD00FBE5BD /* mainviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C1C1701AD7B5AD00FBE5BD /* mainviewcontroller.m */; };
+		72C1C1741AD7B5AD00FBE5BD /* srcontrolslider.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C1C1711AD7B5AD00FBE5BD /* srcontrolslider.m */; };
 		D3E2FE161ACD41C600F6FB1F /* libsmarttoysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */; };
 		D3E2FE171ACD41F000F6FB1F /* robotlaunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FE0E1ACD418100F6FB1F /* robotlaunch.xib */; };
 		D3E2FE181ACD41F000F6FB1F /* robot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDDB1ACD3FFC00F6FB1F /* robot.storyboard */; };
 		D3E2FE191ACD41F000F6FB1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDDD1ACD3FFC00F6FB1F /* Images.xcassets */; };
-		D3E2FE201ACD425600F6FB1F /* srdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */; };
-		D3E2FE231ACD425600F6FB1F /* srmoveprotocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */; };
 		D3E2FE261ACD425600F6FB1F /* viewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDD01ACD3FFC00F6FB1F /* viewcontroller.m */; };
 		D3E2FE2A1ACD42E300F6FB1F /* libsmarttoysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */; };
 		D3E2FE2B1ACD42F200F6FB1F /* controllerlaunch.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD31ACD3FFC00F6FB1F /* controllerlaunch.xib */; };
 		D3E2FE2C1ACD42F200F6FB1F /* controller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD51ACD3FFC00F6FB1F /* controller.storyboard */; };
 		D3E2FE2D1ACD42F200F6FB1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FDD71ACD3FFC00F6FB1F /* Images.xcassets */; };
-		D3E2FE301ACD43DE00F6FB1F /* viewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */; };
-		D3E2FE361ACD43E500F6FB1F /* srdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */; };
-		D3E2FE391ACD43E500F6FB1F /* srmoveprotocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */; };
 		D3E2FE3E1ACD725900F6FB1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3B1ACD725900F6FB1F /* main.m */; };
 		D3E2FE3F1ACD725900F6FB1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3B1ACD725900F6FB1F /* main.m */; };
 		D3E2FE401ACD725900F6FB1F /* appdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FE3C1ACD725900F6FB1F /* appdelegate.m */; };
@@ -28,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7269763C1AD7765D009F1277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D30538701AB2BAD600467896;
+			remoteInfo = smarttoysdkTests;
+		};
 		D3E2FE0B1ACD403D00F6FB1F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */;
@@ -52,6 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72C1C1691AD7B54200FBE5BD /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
+		72C1C16C1AD7B5AD00FBE5BD /* srviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srviewcontroller.h; sourceTree = "<group>"; };
+		72C1C16D1AD7B5AD00FBE5BD /* srcontrolslider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srcontrolslider.h; sourceTree = "<group>"; };
+		72C1C16E1AD7B5AD00FBE5BD /* mainviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainviewcontroller.h; sourceTree = "<group>"; };
+		72C1C16F1AD7B5AD00FBE5BD /* srviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srviewcontroller.m; sourceTree = "<group>"; };
+		72C1C1701AD7B5AD00FBE5BD /* mainviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainviewcontroller.m; sourceTree = "<group>"; };
+		72C1C1711AD7B5AD00FBE5BD /* srcontrolslider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srcontrolslider.m; sourceTree = "<group>"; };
 		D3E2FDBF1ACD3FFC00F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3E2FDC51ACD3FFC00F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3E2FDC61ACD3FFC00F6FB1F /* smarttoycontrollerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smarttoycontrollerTests.m; sourceTree = "<group>"; };
@@ -68,13 +82,7 @@
 		D3E2FDDD1ACD3FFC00F6FB1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D3E2FDDE1ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readme.txt; path = ../readme.txt; sourceTree = "<group>"; };
 		D3E2FDE21ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
-		D3E2FDE41ACD3FFC00F6FB1F /* viewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = viewcontroller.h; sourceTree = "<group>"; };
-		D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = viewcontroller.m; sourceTree = "<group>"; };
-		D3E2FDE81ACD3FFC00F6FB1F /* srdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srdevice.h; sourceTree = "<group>"; };
-		D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srdevice.m; sourceTree = "<group>"; };
 		D3E2FDEB1ACD3FFC00F6FB1F /* srcommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srcommand.h; sourceTree = "<group>"; };
-		D3E2FDEC1ACD3FFC00F6FB1F /* srmoveprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srmoveprotocol.h; sourceTree = "<group>"; };
-		D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = srmoveprotocol.m; sourceTree = "<group>"; };
 		D3E2FDEE1ACD3FFC00F6FB1F /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		D3E2FE071ACD403D00F6FB1F /* smarttoysdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smarttoysdk.xcodeproj; path = ../../smarttoysdk/xcode/smarttoysdk.xcodeproj; sourceTree = "<group>"; };
 		D3E2FE0D1ACD411200F6FB1F /* smarttoycontroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smarttoycontroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +196,7 @@
 		D3E2FDD11ACD3FFC00F6FB1F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				72C1C1691AD7B54200FBE5BD /* robot.png */,
 				D3E2FDD21ACD3FFC00F6FB1F /* controller */,
 				D3E2FDD81ACD3FFC00F6FB1F /* robot */,
 			);
@@ -236,8 +245,12 @@
 		D3E2FDE31ACD3FFC00F6FB1F /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				D3E2FDE41ACD3FFC00F6FB1F /* viewcontroller.h */,
-				D3E2FDE51ACD3FFC00F6FB1F /* viewcontroller.m */,
+				72C1C16C1AD7B5AD00FBE5BD /* srviewcontroller.h */,
+				72C1C16D1AD7B5AD00FBE5BD /* srcontrolslider.h */,
+				72C1C16E1AD7B5AD00FBE5BD /* mainviewcontroller.h */,
+				72C1C16F1AD7B5AD00FBE5BD /* srviewcontroller.m */,
+				72C1C1701AD7B5AD00FBE5BD /* mainviewcontroller.m */,
+				72C1C1711AD7B5AD00FBE5BD /* srcontrolslider.m */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -259,8 +272,6 @@
 		D3E2FDE71ACD3FFC00F6FB1F /* discovery */ = {
 			isa = PBXGroup;
 			children = (
-				D3E2FDE81ACD3FFC00F6FB1F /* srdevice.h */,
-				D3E2FDE91ACD3FFC00F6FB1F /* srdevice.m */,
 			);
 			path = discovery;
 			sourceTree = "<group>";
@@ -269,8 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				D3E2FDEB1ACD3FFC00F6FB1F /* srcommand.h */,
-				D3E2FDEC1ACD3FFC00F6FB1F /* srmoveprotocol.h */,
-				D3E2FDED1ACD3FFC00F6FB1F /* srmoveprotocol.m */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -287,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */,
+				7269763D1AD7765D009F1277 /* smarttoysdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,6 +383,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		7269763D1AD7765D009F1277 /* smarttoysdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = smarttoysdkTests.xctest;
+			remoteRef = 7269763C1AD7765D009F1277 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D3E2FE0C1ACD403D00F6FB1F /* libsmarttoysdk.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -389,6 +406,7 @@
 			files = (
 				D3E2FE171ACD41F000F6FB1F /* robotlaunch.xib in Resources */,
 				D3E2FE181ACD41F000F6FB1F /* robot.storyboard in Resources */,
+				72C1C16A1AD7B54200FBE5BD /* robot.png in Resources */,
 				D3E2FE191ACD41F000F6FB1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +417,7 @@
 			files = (
 				D3E2FE2B1ACD42F200F6FB1F /* controllerlaunch.xib in Resources */,
 				D3E2FE2C1ACD42F200F6FB1F /* controller.storyboard in Resources */,
+				72C1C16B1AD7B54200FBE5BD /* robot.png in Resources */,
 				D3E2FE2D1ACD42F200F6FB1F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,8 +429,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E2FE201ACD425600F6FB1F /* srdevice.m in Sources */,
-				D3E2FE231ACD425600F6FB1F /* srmoveprotocol.m in Sources */,
 				D3E2FE401ACD725900F6FB1F /* appdelegate.m in Sources */,
 				D3E2FE3E1ACD725900F6FB1F /* main.m in Sources */,
 				D3E2FE261ACD425600F6FB1F /* viewcontroller.m in Sources */,
@@ -422,11 +439,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E2FE361ACD43E500F6FB1F /* srdevice.m in Sources */,
-				D3E2FE391ACD43E500F6FB1F /* srmoveprotocol.m in Sources */,
+				72C1C1721AD7B5AD00FBE5BD /* srviewcontroller.m in Sources */,
 				D3E2FE411ACD725900F6FB1F /* appdelegate.m in Sources */,
 				D3E2FE3F1ACD725900F6FB1F /* main.m in Sources */,
-				D3E2FE301ACD43DE00F6FB1F /* viewcontroller.m in Sources */,
+				72C1C1741AD7B5AD00FBE5BD /* srcontrolslider.m in Sources */,
+				72C1C1731AD7B5AD00FBE5BD /* mainviewcontroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
