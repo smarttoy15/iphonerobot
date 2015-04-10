@@ -9,7 +9,11 @@
  */
 
 #import "ViewController.h"
+#import "srcontrolslider.h"
 
 @interface SRViewContorller : UIViewController
+
+@property SRContorlSlider *SRLeftSlider;
+@property SRContorlSlider *SRRightSlider;
 
 @end

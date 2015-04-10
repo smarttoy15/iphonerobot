@@ -9,12 +9,8 @@
  */
 
 #import "srviewcontroller.h"
-#import "srcontrolslider.h"
 
 @interface SRViewContorller ()
-
-@property SRContorlSlider *SRLeftSlider;
-@property SRContorlSlider *SRRightSlider;
 
 @end
 

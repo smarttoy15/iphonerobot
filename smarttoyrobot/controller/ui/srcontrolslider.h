@@ -12,6 +12,9 @@
 
 IB_DESIGNABLE
 
+
 @interface SRContorlSlider : UISlider
+
+- (float) getSliderValue;
 
 @end

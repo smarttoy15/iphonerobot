@@ -8,6 +8,7 @@
  Modified:
  */
 #import "mainviewcontroller.h"
+#define SR_NAME_LABEL_TAG 100
 
 @interface mainViewController ()
 
@@ -15,7 +16,10 @@
 
 @end
 
+
 @implementation mainViewController
+
+@synthesize robotList = _robotList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,7 +58,7 @@
     
     // Configure the cell...
     NSString *mtext = [self.robotList objectAtIndex:indexPath.row];
-    UILabel *robotNameLabel = (UILabel *)[cell viewWithTag:100];
+    UILabel *robotNameLabel = (UILabel *)[cell viewWithTag:SR_NAME_LABEL_TAG];
     robotNameLabel.text = mtext;
     
     return cell;
