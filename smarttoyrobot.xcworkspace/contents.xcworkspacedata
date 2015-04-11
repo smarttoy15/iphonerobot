@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:smarttoyrobot/controller/xcode/smarttoycontroller.xcodeproj">
+      location = "group:smarttoyrobot/xcode/smarttoyrobot.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:smarttoyrobot/robot/xcode/smarttoyrobot.xcodeproj">
+      location = "group:smarttoysdktest/xcode/smarttoysdktest.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:smarttoysdk/xcode/smarttoysdk.xcodeproj">
