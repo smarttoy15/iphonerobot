@@ -15,7 +15,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#include "socket/studpsocket.h"
+#import "network/stnetwork.h"
+#import "socket/studpsocket.h"
 #import <CFNetwork/CFNetwork.h>
 #import <UIKit/UIKit.h>
 #import <arpa/inet.h>
@@ -26,7 +27,9 @@
 #import <sys/socket.h>
 #import <sys/types.h>
 
-#define DEFAULT_UDP_PORT 65535
+#import "misc/stlog.h"
+
+#define DEFAULT_UDP_PORT 5008
 
 @interface STUDPSocket()
 {
@@ -35,12 +38,16 @@
     
     BOOL m_isConnected;
 }
+- (NSData*) getSendAddrData:(NSString*)ip withPort:(UInt16)port;
 
 - (BOOL)setSocketOption:(int)socketFD;
 - (BOOL)bindSocket:(int)socketFD;
 - (BOOL)connect:(int)socketFD withRemoteIp:(NSString*)remoteIp withRemotePort:(int)remotePort;
 - (BOOL)setupRunloop:(int)socketFD;
 - (void)tearDownRunloop;
+
+- (void)onReadCallback;
+- (void)onWriteCallback;
 @end
 
 void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info) {
@@ -49,17 +56,13 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
     if (info) {
         socket = (__bridge STUDPSocket*)info;
     }
+ 
+    if (callbackType == kCFSocketWriteCallBack) {
+        [socket onWriteCallback];
+    }
     
-    if (callbackType == kCFSocketDataCallBack) {
-        
-        CFDataRef cfData = (CFDataRef)data;
-        NSData* recData = (__bridge_transfer NSData*)cfData;
-        
-        if (socket.delegate) {
-            [socket.delegate onDataRecieve:recData];
-        }
-        
-        return;
+    if (callbackType == kCFSocketReadCallBack) {
+        [socket onReadCallback];
     }
 }
 
@@ -70,6 +73,8 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
 @synthesize remotePort = _remotePort;
 @synthesize isValidate = _isValidate;
 @synthesize delegate = _delegate;
+@synthesize canBroadcast = _canBroadcast;
+@synthesize maxReceiveBufferLen = _maxReceiveBufferLen;
 
 - (STUDPSocket*)init {
     if (self = [super init]) {
@@ -78,12 +83,53 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
         _remotePort = DEFAULT_UDP_PORT;
         _isValidate = NO;
         _delegate = NULL;
+        _canBroadcast = NO;
+        _maxReceiveBufferLen = MAX_UDP_PACKAGE_DATA_LENGTH;
         
         m_socket = NULL;
         m_loopSource = NULL;
         m_isConnected = false;
     }
     return self;
+}
+
+- (STUDPSocket*)initWithBroadcast:(BOOL)enableBroadcast {
+    self = [self init];
+    _canBroadcast = enableBroadcast;
+    return self;
+}
+
+- (void)onWriteCallback {
+    _isValidate = true;
+}
+
+- (void)onReadCallback {
+    
+    struct sockaddr_in sockaddr;
+    socklen_t sockaddrLen = sizeof(sockaddr);
+    
+    NSData* buffData = nil;
+    void* buff = (void*)malloc(self.maxReceiveBufferLen);
+    size_t buffSize = self.maxReceiveBufferLen;
+    
+    ssize_t result = recvfrom(CFSocketGetNative(m_socket), buff, buffSize, 0, (struct sockaddr *)&sockaddr, &sockaddrLen);
+
+    if(result > 0)
+    {
+        NSString* host = [STNetwork getIPv4StringFromIn_Addr:(in_addr_t)sockaddr.sin_addr.s_addr];
+        UInt16 port = ntohs(sockaddr.sin_port);
+        
+        if (self.delegate) {
+            buffData = [[NSData alloc]initWithBytesNoCopy:buff length:result];
+            [self.delegate onDataRecieve:buffData withRemoteIp:host withRemotePort:port];
+        }
+    }
+    
+    if (buffData == nil) {
+        free(buff);
+    }
+    
+    CFSocketEnableCallBacks(m_socket, kCFSocketReadCallBack | kCFSocketWriteCallBack);
 }
 
 - (BOOL)open {
@@ -97,7 +143,12 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
     do {
         socketFD = socket(AF_INET, SOCK_DGRAM, 0);
         if (socketFD == 0) {
-            NSLog(@"error: init udp socket failed!");
+            STLog(@"error: init udp socket failed!");
+            break;
+        }
+        
+        if (![self setupRunloop:socketFD]) {
+            STLog(@"error: step up runloop failed!");
             break;
         }
         
@@ -106,7 +157,7 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
         }
         
         if (![self bindSocket:socketFD]) {
-            NSLog(@"error: bind socket failed!");
+            STLog(@"error: bind socket failed!");
             break;
         }
         
@@ -115,12 +166,7 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
             [self connect:socketFD withRemoteIp:remoteIp withRemotePort:remotePort];
         }
         
-        if (![self setupRunloop:socketFD]) {
-             NSLog(@"error: step up runloop failed!");
-             break;
-        }
-        
-        _isValidate = YES;
+        //_isValidate = YES;
         
         bRet = true;
     } while(false);
@@ -139,35 +185,64 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
     m_isConnected = false;  // 使用此函数后，之前的connect函数就报废了
     return [self send:data];
 }
-- (BOOL)send:(NSData*)data {
+
+- (NSData*) getSendAddrData:(NSString*)ip withPort:(UInt16)port {
+    NSString *portStr = [NSString stringWithFormat:@"%hu", port];
     
+    struct addrinfo hints, *res, *res0;
+        
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family   = PF_UNSPEC;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = IPPROTO_UDP;
+    // No passive flag on a send or connect
+        
+    int error = getaddrinfo([ip UTF8String], [portStr UTF8String], &hints, &res0);
+        
+    if(error) {
+        STLog(@"get net address of %s:%u failed!", ip, port);
+        return nil;
+    }
+        
+    for(res = res0; res; res = res->ai_next)
+    {
+        if(res->ai_family == AF_INET)
+        {
+            return [[NSData alloc]initWithBytes:res->ai_addr length:res->ai_addrlen];
+        }
+    }
+    freeaddrinfo(res0);
+    return nil;
+}
+
+- (BOOL)send:(NSData*)data {
+    BOOL bRet = false;
     if (!self.isValidate) {
-        NSLog(@"send: udp socket hasn't been initialized!");
-        return false;
+        STLog(@"send: udp socket hasn't been initialized!");
+        return bRet;
     }
     
     if (self.remotePort <= 0 || self.remoteIp == nil || [self.remoteIp isEqual:@""]) {
-        NSLog(@"remote ip or remote port hasn't initialized correctly!");
-        return false;
+        STLog(@"remote ip or remote port hasn't initialized correctly!");
+        return bRet;
     }
     
-    CFDataRef serverAddr = NULL;
-    
+    ssize_t result = -1;
     if (!m_isConnected) {
-        struct sockaddr_in server;
-        memset(&server, 0, sizeof(server));
-        server.sin_len = sizeof(server);
-        server.sin_family=AF_INET;
-        server.sin_port=htons(self.remotePort); ///server的监听端口
-        server.sin_addr.s_addr=inet_addr(self.remoteIp.UTF8String); ///server的地址
-    
-        serverAddr = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&server, sizeof(server));
+        NSData* addr = [self getSendAddrData:self.remoteIp withPort:(UInt16)self.remotePort];
+        if (addr) {
+            result = sendto(CFSocketGetNative(m_socket), data.bytes, (size_t)[data length], 0, addr.bytes, (socklen_t)[addr length]);
+        }
+    } else {
+        result = send(CFSocketGetNative(m_socket), data.bytes, (size_t)[data length], 0);
     }
+    bRet = result >= 0 ? YES : NO;
     
-    // 如果之前已经connect的话，serverAddr就为nil;
-    CFSocketError error = CFSocketSendData(m_socket, serverAddr, (__bridge_retained CFDataRef)data,0);
-    return error == kCFSocketSuccess;
+    _isValidate = false;
+    CFSocketEnableCallBacks(m_socket, kCFSocketReadCallBack | kCFSocketWriteCallBack);
+    return bRet;
 }
+
 - (BOOL)send:(void*)data withLength:(long)length {
     NSData* nData = [NSData dataWithBytes:data length:length];
     return [self send:nData];
@@ -189,60 +264,66 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
     // Set socket options
     status = fcntl(socketFD, F_SETFL, O_NONBLOCK);
     if (status == -1) {
-        NSLog(@"error: set socket O_NONBLOCK option failed");
+        STLog(@"error: set socket O_NONBLOCK option failed");
         return false;
     }
     
     int reuseaddr = 1;
     status = setsockopt(socketFD, SOL_SOCKET, SO_REUSEADDR, &reuseaddr, sizeof(reuseaddr));
     if (status == -1) {
-        NSLog(@"error: set socket SO_REUSEADDR option failed!");
+        STLog(@"error: set socket SO_REUSEADDR option failed!");
         return false;
     }
     
     int nosigpipe = 1;
     status = setsockopt(socketFD, SOL_SOCKET, SO_NOSIGPIPE, &nosigpipe, sizeof(nosigpipe));
     if (status == -1) {
-        NSLog(@"error: set socket SO_NOSIGPIPE option failed");
+        STLog(@"error: set socket SO_NOSIGPIPE option failed");
         return false;
     }
     
+    if (self.canBroadcast) {
+        int broadcast = self.canBroadcast;
+        status = setsockopt(socketFD, SOL_SOCKET, SO_BROADCAST, (const void *)&broadcast, sizeof(broadcast));
+        if (status == -1) {
+            STLog(@"error: set socket SO_BROADCAST failed!");
+            return false;
+        }
+    }
     return true;
 }
 
 - (BOOL)bindSocket:(int)socketFD {
-    int status = -1;
     struct sockaddr_in local;
     memset(&local, 0, sizeof(local));
     local.sin_len = sizeof(local);
     local.sin_family = AF_INET;
     local.sin_port = htons(self.localPort); ///监听端口
-    local.sin_addr.s_addr = INADDR_ANY; ///本机
-    status = bind(socketFD,(struct sockaddr*)&local,sizeof local);
-
-    return status == 0 ? true : false;
+    local.sin_addr.s_addr = htonl(INADDR_ANY);
+    
+    NSData* addrData = [NSData dataWithBytes:&local length:sizeof(local)];
+    CFSocketError error = CFSocketSetAddress(m_socket, (__bridge CFDataRef)addrData);
+    
+    return error == kCFSocketSuccess;
 }
 
 - (BOOL)connect:(int)socketFD withRemoteIp:(NSString*)remoteIp withRemotePort:(int)remotePort {
     if (!remoteIp || [remoteIp length] == 0 || remotePort <= 0) {
-        NSLog(@"connect: invalid argument of remote address");
+        STLog(@"connect: invalid argument of remote address");
         return false;
     }
     
     self.remoteIp = remoteIp;
     self.remotePort = remotePort;
     
-    int status = -1;
-    struct sockaddr_in remote;
-    int len = sizeof(remote);
-    memset(&remote, 0, len);
-    remote.sin_len = sizeof(remote);
-    remote.sin_family = AF_INET;
-    remote.sin_port = htons(remotePort); ///监听端口
-    remote.sin_addr.s_addr = inet_addr([remoteIp UTF8String]); ///本机
-    status = connect(socketFD, (const struct sockaddr*)&remote, len);
+    NSData* addrData = [self getSendAddrData:self.remoteIp withPort:(UInt16)self.remotePort];
+    if(!addrData) {
+        return false;
+    }
     
-    m_isConnected = status == 0 ? true : false;
+    CFSocketError error = CFSocketConnectToAddress(m_socket, (__bridge CFDataRef)addrData, (CFTimeInterval)0.0);
+    
+    m_isConnected = error == kCFSocketSuccess;
     return m_isConnected;
 }
 
@@ -255,9 +336,9 @@ void onUDPDataCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataR
         NULL
     };
     
-    m_socket = CFSocketCreateWithNative(kCFAllocatorDefault, socketFD, kCFSocketDataCallBack, onUDPDataCallback, &context);
+    m_socket = CFSocketCreateWithNative(kCFAllocatorDefault, socketFD, kCFSocketReadCallBack | kCFSocketWriteCallBack, onUDPDataCallback, &context);
     if (!m_socket) {
-        NSLog(@"error: create CFSocketRef failed!");
+        STLog(@"error: create CFSocketRef failed!");
         return false;
     }
     

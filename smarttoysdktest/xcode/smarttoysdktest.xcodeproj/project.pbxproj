@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D324E5061ACECCB200AB09CC /* sttdevicediscover.m in Sources */ = {isa = PBXBuildFile; fileRef = D324E5051ACECCB200AB09CC /* sttdevicediscover.m */; };
+		D324E5091ACECD0600AB09CC /* sttdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D324E5081ACECD0600AB09CC /* sttdevice.m */; };
+		D3884A3B1AD03BA900230697 /* sttsocketviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A3A1AD03BA900230697 /* sttsocketviewcontroller.m */; };
+		D3884A401AD042BF00230697 /* stttcpreciever.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A3F1AD042BF00230697 /* stttcpreciever.m */; };
+		D3884A431AD043C700230697 /* stttcpserverhandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A421AD043C700230697 /* stttcpserverhandler.m */; };
+		D3884A461AD043D700230697 /* stttcpclienthandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A451AD043D700230697 /* stttcpclienthandler.m */; };
+		D3884A491AD048CA00230697 /* sttudpreciever.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A481AD048CA00230697 /* sttudpreciever.m */; };
+		D3884A4C1AD2683000230697 /* sttcommander.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A4B1AD2683000230697 /* sttcommander.m */; };
+		D3E2FD7D1ACD371500F6FB1F /* appdelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FD721ACD371500F6FB1F /* appdelegate.m */; };
+		D3E2FD7E1ACD371500F6FB1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FD731ACD371500F6FB1F /* main.m */; };
+		D3E2FD801ACD371500F6FB1F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FD771ACD371500F6FB1F /* Images.xcassets */; };
+		D3E2FD811ACD371500F6FB1F /* launchscreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FD781ACD371500F6FB1F /* launchscreen.xib */; };
+		D3E2FD821ACD371500F6FB1F /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E2FD791ACD371500F6FB1F /* main.storyboard */; };
+		D3E2FD8F1ACD3A1800F6FB1F /* libsmarttoysdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E2FD8C1ACD3A0000F6FB1F /* libsmarttoysdk.a */; };
+		D3E2FD921ACD3A8600F6FB1F /* sttmaintableviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FD911ACD3A8600F6FB1F /* sttmaintableviewcontroller.m */; };
+		D3E4DEBC1ACFFE13000BB350 /* devicecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E4DEBB1ACFFE13000BB350 /* devicecell.xib */; };
+		D3E4DEBE1AD008EC000BB350 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3E4DEBD1AD008EC000BB350 /* image.jpg */; };
+		D3E4DEC11AD009B5000BB350 /* deviceviewcell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4DEC01AD009B5000BB350 /* deviceviewcell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3E2FD8B1ACD3A0000F6FB1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FD871ACD39FF00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D30538711AB2BAED00467896;
+			remoteInfo = smarttoysdk;
+		};
+		D3E2FD8D1ACD3A0E00F6FB1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3E2FD871ACD39FF00F6FB1F /* smarttoysdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D30537F51AB2A93400467896;
+			remoteInfo = smarttoysdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D324E5041ACECCB200AB09CC /* sttdevicediscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttdevicediscover.h; sourceTree = "<group>"; };
+		D324E5051ACECCB200AB09CC /* sttdevicediscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttdevicediscover.m; sourceTree = "<group>"; };
+		D324E5071ACECD0600AB09CC /* sttdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttdevice.h; sourceTree = "<group>"; };
+		D324E5081ACECD0600AB09CC /* sttdevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttdevice.m; sourceTree = "<group>"; };
+		D3884A391AD03BA900230697 /* sttsocketviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttsocketviewcontroller.h; sourceTree = "<group>"; };
+		D3884A3A1AD03BA900230697 /* sttsocketviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttsocketviewcontroller.m; sourceTree = "<group>"; };
+		D3884A3E1AD042BF00230697 /* stttcpreciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stttcpreciever.h; sourceTree = "<group>"; };
+		D3884A3F1AD042BF00230697 /* stttcpreciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stttcpreciever.m; sourceTree = "<group>"; };
+		D3884A411AD043C700230697 /* stttcpserverhandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stttcpserverhandler.h; sourceTree = "<group>"; };
+		D3884A421AD043C700230697 /* stttcpserverhandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stttcpserverhandler.m; sourceTree = "<group>"; };
+		D3884A441AD043D700230697 /* stttcpclienthandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stttcpclienthandler.h; sourceTree = "<group>"; };
+		D3884A451AD043D700230697 /* stttcpclienthandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stttcpclienthandler.m; sourceTree = "<group>"; };
+		D3884A471AD048CA00230697 /* sttudpreciever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttudpreciever.h; sourceTree = "<group>"; };
+		D3884A481AD048CA00230697 /* sttudpreciever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttudpreciever.m; sourceTree = "<group>"; };
+		D3884A4A1AD2683000230697 /* sttcommander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcommander.h; sourceTree = "<group>"; };
+		D3884A4B1AD2683000230697 /* sttcommander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttcommander.m; sourceTree = "<group>"; };
+		D3E2FD691ACD371500F6FB1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3E2FD711ACD371500F6FB1F /* appdelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appdelegate.h; sourceTree = "<group>"; };
+		D3E2FD721ACD371500F6FB1F /* appdelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appdelegate.m; sourceTree = "<group>"; };
+		D3E2FD731ACD371500F6FB1F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3E2FD771ACD371500F6FB1F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D3E2FD781ACD371500F6FB1F /* launchscreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = launchscreen.xib; sourceTree = "<group>"; };
+		D3E2FD791ACD371500F6FB1F /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		D3E2FD831ACD372D00F6FB1F /* smarttoysdktest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smarttoysdktest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E2FD871ACD39FF00F6FB1F /* smarttoysdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smarttoysdk.xcodeproj; path = ../../smarttoysdk/xcode/smarttoysdk.xcodeproj; sourceTree = "<group>"; };
+		D3E2FD901ACD3A8600F6FB1F /* sttmaintableviewcontroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttmaintableviewcontroller.h; sourceTree = "<group>"; };
+		D3E2FD911ACD3A8600F6FB1F /* sttmaintableviewcontroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttmaintableviewcontroller.m; sourceTree = "<group>"; };
+		D3E4DEBB1ACFFE13000BB350 /* devicecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = devicecell.xib; sourceTree = "<group>"; };
+		D3E4DEBD1AD008EC000BB350 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		D3E4DEBF1AD009B5000BB350 /* deviceviewcell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceviewcell.h; sourceTree = "<group>"; };
+		D3E4DEC01AD009B5000BB350 /* deviceviewcell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceviewcell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3E2FD3C1ACD367900F6FB1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FD8F1ACD3A1800F6FB1F /* libsmarttoysdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D324E5031ACECCB200AB09CC /* discovery */ = {
+			isa = PBXGroup;
+			children = (
+				D324E5041ACECCB200AB09CC /* sttdevicediscover.h */,
+				D324E5051ACECCB200AB09CC /* sttdevicediscover.m */,
+				D324E5071ACECD0600AB09CC /* sttdevice.h */,
+				D324E5081ACECD0600AB09CC /* sttdevice.m */,
+				D3E4DEBF1AD009B5000BB350 /* deviceviewcell.h */,
+				D3E4DEC01AD009B5000BB350 /* deviceviewcell.m */,
+			);
+			path = discovery;
+			sourceTree = "<group>";
+		};
+		D3884A301AD03B8400230697 /* socket */ = {
+			isa = PBXGroup;
+			children = (
+				D3884A311AD03B8400230697 /* tcp */,
+				D3884A341AD03B8400230697 /* udp */,
+				D3884A391AD03BA900230697 /* sttsocketviewcontroller.h */,
+				D3884A3A1AD03BA900230697 /* sttsocketviewcontroller.m */,
+				D3884A4A1AD2683000230697 /* sttcommander.h */,
+				D3884A4B1AD2683000230697 /* sttcommander.m */,
+			);
+			path = socket;
+			sourceTree = "<group>";
+		};
+		D3884A311AD03B8400230697 /* tcp */ = {
+			isa = PBXGroup;
+			children = (
+				D3884A3E1AD042BF00230697 /* stttcpreciever.h */,
+				D3884A3F1AD042BF00230697 /* stttcpreciever.m */,
+				D3884A411AD043C700230697 /* stttcpserverhandler.h */,
+				D3884A421AD043C700230697 /* stttcpserverhandler.m */,
+				D3884A441AD043D700230697 /* stttcpclienthandler.h */,
+				D3884A451AD043D700230697 /* stttcpclienthandler.m */,
+			);
+			path = tcp;
+			sourceTree = "<group>";
+		};
+		D3884A341AD03B8400230697 /* udp */ = {
+			isa = PBXGroup;
+			children = (
+				D3884A471AD048CA00230697 /* sttudpreciever.h */,
+				D3884A481AD048CA00230697 /* sttudpreciever.m */,
+			);
+			path = udp;
+			sourceTree = "<group>";
+		};
+		D3E2FD361ACD367900F6FB1F = {
+			isa = PBXGroup;
+			children = (
+				D3E2FD861ACD39A200F6FB1F /* dependences */,
+				D3E2FD681ACD371500F6FB1F /* xcode */,
+				D3E2FD701ACD371500F6FB1F /* src */,
+				D3E2FD761ACD371500F6FB1F /* res */,
+				D3E2FD831ACD372D00F6FB1F /* smarttoysdktest.app */,
+			);
+			sourceTree = "<group>";
+		};
+		D3E2FD681ACD371500F6FB1F /* xcode */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FD691ACD371500F6FB1F /* Info.plist */,
+			);
+			name = xcode;
+			sourceTree = "<group>";
+		};
+		D3E2FD701ACD371500F6FB1F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D3884A301AD03B8400230697 /* socket */,
+				D324E5031ACECCB200AB09CC /* discovery */,
+				D3E2FD711ACD371500F6FB1F /* appdelegate.h */,
+				D3E2FD721ACD371500F6FB1F /* appdelegate.m */,
+				D3E2FD731ACD371500F6FB1F /* main.m */,
+				D3E2FD901ACD3A8600F6FB1F /* sttmaintableviewcontroller.h */,
+				D3E2FD911ACD3A8600F6FB1F /* sttmaintableviewcontroller.m */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		D3E2FD761ACD371500F6FB1F /* res */ = {
+			isa = PBXGroup;
+			children = (
+				D3E4DEBD1AD008EC000BB350 /* image.jpg */,
+				D3E2FD771ACD371500F6FB1F /* Images.xcassets */,
+				D3E2FD781ACD371500F6FB1F /* launchscreen.xib */,
+				D3E2FD791ACD371500F6FB1F /* main.storyboard */,
+				D3E4DEBB1ACFFE13000BB350 /* devicecell.xib */,
+			);
+			name = res;
+			path = ../res;
+			sourceTree = "<group>";
+		};
+		D3E2FD861ACD39A200F6FB1F /* dependences */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FD871ACD39FF00F6FB1F /* smarttoysdk.xcodeproj */,
+			);
+			name = dependences;
+			sourceTree = "<group>";
+		};
+		D3E2FD881ACD39FF00F6FB1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3E2FD8C1ACD3A0000F6FB1F /* libsmarttoysdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3E2FD3E1ACD367900F6FB1F /* smarttoysdktest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3E2FD621ACD367900F6FB1F /* Build configuration list for PBXNativeTarget "smarttoysdktest" */;
+			buildPhases = (
+				D3E2FD3B1ACD367900F6FB1F /* Sources */,
+				D3E2FD3C1ACD367900F6FB1F /* Frameworks */,
+				D3E2FD3D1ACD367900F6FB1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3E2FD8E1ACD3A0E00F6FB1F /* PBXTargetDependency */,
+			);
+			name = smarttoysdktest;
+			productName = smarttoysdktest;
+			productReference = D3E2FD831ACD372D00F6FB1F /* smarttoysdktest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3E2FD371ACD367900F6FB1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = smarttoy;
+				TargetAttributes = {
+					D3E2FD3E1ACD367900F6FB1F = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = D3E2FD3A1ACD367900F6FB1F /* Build configuration list for PBXProject "smarttoysdktest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D3E2FD361ACD367900F6FB1F;
+			productRefGroup = D3E2FD361ACD367900F6FB1F;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D3E2FD881ACD39FF00F6FB1F /* Products */;
+					ProjectRef = D3E2FD871ACD39FF00F6FB1F /* smarttoysdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D3E2FD3E1ACD367900F6FB1F /* smarttoysdktest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D3E2FD8C1ACD3A0000F6FB1F /* libsmarttoysdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsmarttoysdk.a;
+			remoteRef = D3E2FD8B1ACD3A0000F6FB1F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3E2FD3D1ACD367900F6FB1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FD811ACD371500F6FB1F /* launchscreen.xib in Resources */,
+				D3E2FD821ACD371500F6FB1F /* main.storyboard in Resources */,
+				D3E2FD801ACD371500F6FB1F /* Images.xcassets in Resources */,
+				D3E4DEBC1ACFFE13000BB350 /* devicecell.xib in Resources */,
+				D3E4DEBE1AD008EC000BB350 /* image.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3E2FD3B1ACD367900F6FB1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E2FD7D1ACD371500F6FB1F /* appdelegate.m in Sources */,
+				D3884A461AD043D700230697 /* stttcpclienthandler.m in Sources */,
+				D3884A401AD042BF00230697 /* stttcpreciever.m in Sources */,
+				D3E4DEC11AD009B5000BB350 /* deviceviewcell.m in Sources */,
+				D324E5061ACECCB200AB09CC /* sttdevicediscover.m in Sources */,
+				D3884A3B1AD03BA900230697 /* sttsocketviewcontroller.m in Sources */,
+				D3884A4C1AD2683000230697 /* sttcommander.m in Sources */,
+				D3E2FD7E1ACD371500F6FB1F /* main.m in Sources */,
+				D324E5091ACECD0600AB09CC /* sttdevice.m in Sources */,
+				D3E2FD921ACD3A8600F6FB1F /* sttmaintableviewcontroller.m in Sources */,
+				D3884A491AD048CA00230697 /* sttudpreciever.m in Sources */,
+				D3884A431AD043C700230697 /* stttcpserverhandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3E2FD8E1ACD3A0E00F6FB1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = smarttoysdk;
+			targetProxy = D3E2FD8D1ACD3A0E00F6FB1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D3E2FD601ACD367900F6FB1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../smarttoysdk/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D3E2FD611ACD367900F6FB1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../smarttoysdk/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3E2FD631ACD367900F6FB1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../../smarttoysdk/include,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/newma/Workspace/smarttoy/trunk/iphone_code/build/smarttoyrobot/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D3E2FD641ACD367900F6FB1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../../smarttoysdk/include,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/newma/Workspace/smarttoy/trunk/iphone_code/build/smarttoyrobot/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3E2FD3A1ACD367900F6FB1F /* Build configuration list for PBXProject "smarttoysdktest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E2FD601ACD367900F6FB1F /* Debug */,
+				D3E2FD611ACD367900F6FB1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3E2FD621ACD367900F6FB1F /* Build configuration list for PBXNativeTarget "smarttoysdktest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E2FD631ACD367900F6FB1F /* Debug */,
+				D3E2FD641ACD367900F6FB1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3E2FD371ACD367900F6FB1F /* Project object */;
+}
