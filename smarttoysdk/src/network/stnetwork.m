@@ -43,4 +43,22 @@
     return nil;
 }
 
++ (NSString*)getIPv4StringFromIn_Addr:(const in_addr_t)addr {
+    NSString* retIP = NULL;
+    
+    char ip[20];
+    memset(ip, 0, sizeof(ip));
+    unsigned int intIP;
+    memcpy(&intIP, &addr,sizeof(unsigned int));
+    int a = (intIP >> 24) & 0xFF;
+    int b = (intIP >> 16) & 0xFF;
+    int c = (intIP >> 8) & 0xFF;
+    int d = intIP & 0xFF;
+    
+    sprintf(ip, "%d.%d.%d.%d", d,c,b,a);
+    
+    retIP = [NSString stringWithFormat:@"%d.%d.%d.%d", d,c,b,a];
+    return retIP;
+}
+
 @end

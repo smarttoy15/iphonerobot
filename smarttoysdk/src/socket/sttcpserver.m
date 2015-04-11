@@ -20,6 +20,7 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import "socket/sttcpserver.h"
+#import "misc/stlog.h"
 
 @interface STTCPServer() <NSStreamDelegate, STTCPSocketHandler>
 {
@@ -38,7 +39,7 @@
 void onTCPAcceptCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDataRef address, const void *data, void *info) {
     if (callbackType == kCFSocketAcceptCallBack) {
         if (data == NULL) {  // data is a pointer to a CFSocketNativeHandle;
-            NSLog(@"Error: TCP server accept has ocurred an error!");
+            STLog(@"Error: TCP server accept has ocurred an error!");
             return;
         }
     
@@ -79,7 +80,7 @@ void onTCPAcceptCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDat
     CFSocketRef socket = CFSocketCreate(NULL, PF_INET, SOCK_STREAM, IPPROTO_TCP, kCFSocketAcceptCallBack, onTCPAcceptCallback, &context);
     
     if (!socket) {
-        NSLog(@"Create socket failed!");
+        STLog(@"Create socket failed!");
         return NO;
     }
     
@@ -98,7 +99,7 @@ void onTCPAcceptCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDat
     CFDataRef sincfd = CFDataCreate(kCFAllocatorDefault, (UInt8 *)&sin, sizeof(sin));
     
     if (kCFSocketSuccess != CFSocketSetAddress(socket, sincfd)) {
-        NSLog(@"Bind to address failed!");
+        STLog(@"Bind to address failed!");
         if (socket) {
             CFRelease(socket);
             socket = NULL;
@@ -206,6 +207,17 @@ void onTCPAcceptCallback(CFSocketRef s, CFSocketCallBackType callbackType, CFDat
 - (void)onDisconnected:(STTCPSocket*)session {
     if (_delegate != nil) {
         [_delegate onSocketClose:self withSocket:session];
+    }
+}
+
+- (void)sendAllSessionsMessage:(NSData*)message {
+    for (NSObject* obj in m_dictionary.allValues) {
+        STTCPSocket* session = (STTCPSocket*)obj;
+        if (session.isValid) {
+            [session send:message];
+        } else {
+            STLog(@"error: session id[%d] is not valid, can't send message to it!", session.socketId);
+        }
     }
 }
 

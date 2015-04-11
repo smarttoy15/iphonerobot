@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>smarttoysdk.xcscheme</key>
+		<key>smarttoysdktest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D30537F51AB2A93400467896</key>
+		<key>D3E2FD3E1ACD367900F6FB1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D30538001AB2A93400467896</key>
+		<key>D3E2FD571ACD367900F6FB1F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,8 +22,10 @@
 /**********************************************************
  @descript：当UDP接收到数据时的回调
  @argument：(NSData*)data：接收到的数据
+ @argument：(NSString*)ip：数据发送来源的IP地址
+ @argument：(int)port：数据发送来源的端口号
  **********************************************************/
-- (void)onDataRecieve:(NSData*)data;
+- (void)onDataRecieve:(NSData*)data withRemoteIp:(NSString*)ip withRemotePort:(int)port;
 
 @end
 

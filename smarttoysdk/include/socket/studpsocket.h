@@ -20,6 +20,8 @@
 
 #import "socket/studprecieve_i.h"
 
+#define MAX_UDP_PACKAGE_DATA_LENGTH 8192
+
 @interface STUDPSocket : NSObject
 
 @property(nonatomic, readwrite)int localPort;        // 本地端口
@@ -28,6 +30,11 @@
 
 @property(nonatomic, readonly)BOOL isValidate;       // 是否可以发送数据
 @property(nonatomic, assign)id delegate;
+@property(nonatomic, readonly) BOOL canBroadcast;
+
+@property(nonatomic, readwrite) uint maxReceiveBufferLen;
+
+- (STUDPSocket*)initWithBroadcast:(BOOL)enableBroadcast;
 
 /**********************************************************
  @descript：绑定端远程ip地址以及端口，这样就不必每次都要重新指定ip和端口了

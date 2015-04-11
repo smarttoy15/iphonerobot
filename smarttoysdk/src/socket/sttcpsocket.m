@@ -19,6 +19,7 @@
 #import <netinet/in.h>
 #import "socket/sttcpsocket.h"
 #import "network/stnetwork.h"
+#import "misc/stlog.h"
 
 @interface STTCPSocket() <NSStreamDelegate>
 {
@@ -68,7 +69,7 @@
     BOOL bRet = NO;
     
     if (m_isValid) {
-        NSLog(@"error: TCPSocket has been connected!");
+        STLog(@"error: TCPSocket has been connected!");
         return bRet;
     }
     
@@ -207,7 +208,7 @@
         }
         case NSStreamEventEndEncountered:
             // server closed
-            NSLog(@"on stream event end encountered");
+            STLog(@"on stream event end encountered");
             
             if (self.readDelegate != nil) {
                 [self.readDelegate onRecieveEnd:self];
@@ -215,7 +216,7 @@
             
             break;
         case NSStreamEventErrorOccurred:
-            NSLog(@"on stream event error occurred");
+            STLog(@"on stream event error occurred");
             if ([aStream isKindOfClass:[NSInputStream class]]) {
                 if (self.readDelegate != nil) {
                     [self.readDelegate onRecieveError:self withError:[NSError description]];

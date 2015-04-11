@@ -72,6 +72,8 @@
 - (void)removeSessionById:(int)sessionId;
 - (void)removeAllSessions;
 
+- (void)sendAllSessionsMessage:(NSData*)message;
+
 @end
 
 #endif // STTCPSERVER_H

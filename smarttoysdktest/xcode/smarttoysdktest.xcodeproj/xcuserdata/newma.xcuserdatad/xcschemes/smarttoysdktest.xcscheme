@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D30537F51AB2A93400467896"
-               BuildableName = "libsmarttoysdk.a"
-               BlueprintName = "smarttoysdk"
-               ReferencedContainer = "container:smarttoysdk.xcodeproj">
+               BlueprintIdentifier = "D3E2FD3E1ACD367900F6FB1F"
+               BuildableName = "smarttoysdktest.app"
+               BlueprintName = "smarttoysdktest"
+               ReferencedContainer = "container:smarttoysdktest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D30538001AB2A93400467896"
-               BuildableName = "smarttoysdkTests.xctest"
-               BlueprintName = "smarttoysdkTests"
-               ReferencedContainer = "container:smarttoysdk.xcodeproj">
+               BlueprintIdentifier = "D3E2FD571ACD367900F6FB1F"
+               BuildableName = "smarttoysdktestTests.xctest"
+               BlueprintName = "smarttoysdktestTests"
+               ReferencedContainer = "container:smarttoysdktest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D30538001AB2A93400467896"
-               BuildableName = "smarttoysdkTests.xctest"
-               BlueprintName = "smarttoysdkTests"
-               ReferencedContainer = "container:smarttoysdk.xcodeproj">
+               BlueprintIdentifier = "D3E2FD571ACD367900F6FB1F"
+               BuildableName = "smarttoysdktestTests.xctest"
+               BlueprintName = "smarttoysdktestTests"
+               ReferencedContainer = "container:smarttoysdktest.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D30537F51AB2A93400467896"
-            BuildableName = "libsmarttoysdk.a"
-            BlueprintName = "smarttoysdk"
-            ReferencedContainer = "container:smarttoysdk.xcodeproj">
+            BlueprintIdentifier = "D3E2FD3E1ACD367900F6FB1F"
+            BuildableName = "smarttoysdktest.app"
+            BlueprintName = "smarttoysdktest"
+            ReferencedContainer = "container:smarttoysdktest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,15 +72,16 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D30537F51AB2A93400467896"
-            BuildableName = "libsmarttoysdk.a"
-            BlueprintName = "smarttoysdk"
-            ReferencedContainer = "container:smarttoysdk.xcodeproj">
+            BlueprintIdentifier = "D3E2FD3E1ACD367900F6FB1F"
+            BuildableName = "smarttoysdktest.app"
+            BlueprintName = "smarttoysdktest"
+            ReferencedContainer = "container:smarttoysdktest.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -90,15 +91,16 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D30537F51AB2A93400467896"
-            BuildableName = "libsmarttoysdk.a"
-            BlueprintName = "smarttoysdk"
-            ReferencedContainer = "container:smarttoysdk.xcodeproj">
+            BlueprintIdentifier = "D3E2FD3E1ACD367900F6FB1F"
+            BuildableName = "smarttoysdktest.app"
+            BlueprintName = "smarttoysdktest"
+            ReferencedContainer = "container:smarttoysdktest.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
