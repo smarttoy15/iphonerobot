@@ -20,7 +20,7 @@ static const int MAX_AQBUFFER_COUNT = 3;
     AudioQueueBufferRef m_aqBuffer[MAX_AQBUFFER_COUNT];
     
     Float32 m_maxBufferSeconds;
-    int32_t m_maxBufferSize;
+    UInt32 m_maxBufferSize;
 }
 
 - (AudioQueueRef)getAudioQueue;
@@ -31,7 +31,7 @@ static const int MAX_AQBUFFER_COUNT = 3;
 - (BOOL)setupAudioQueue;
 - (void)releaseAudioQueue;
 
-- (int32_t)getBufferSize:(AudioQueueRef)inAQ withDescript:(AudioStreamBasicDescription)desp withSeconds:(Float32)seconds;
+- (UInt32)getBufferSize:(AudioQueueRef)inAQ withDescript:(AudioStreamBasicDescription)desp withSeconds:(Float32)seconds;
 @end
 
 static void handleInputBuffer (
@@ -188,7 +188,7 @@ static void audioQueueRunningProc( void *              inUserData,
     _isInitialized = NO;
 }
 
-- (int32_t)getBufferSize:(AudioQueueRef)inAQ withDescript:(AudioStreamBasicDescription)desp withSeconds:(Float32)seconds {
+- (UInt32)getBufferSize:(AudioQueueRef)inAQ withDescript:(AudioStreamBasicDescription)desp withSeconds:(Float32)seconds {
     int maxPacketSize = desp.mBytesPerPacket;
     if (maxPacketSize == 0) {
         STLog(@"Don't support VBR audio frame");
@@ -196,7 +196,7 @@ static void audioQueueRunningProc( void *              inUserData,
     }
     
     Float64 numBytesForTime = desp.mSampleRate * maxPacketSize * seconds;
-    return (int32_t)(numBytesForTime < MAX_AQBUFFER_SIZE ? numBytesForTime : MAX_AQBUFFER_SIZE);
+    return (UInt32)(numBytesForTime < MAX_AQBUFFER_SIZE ? numBytesForTime : MAX_AQBUFFER_SIZE);
 }
 
 - (BOOL)start {

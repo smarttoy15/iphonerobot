@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30D635C1ADA81EB00A9BF6D /* stutils.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D635B1ADA81EB00A9BF6D /* stutils.m */; };
 		D3DD4EC21AB6C98D0018A61D /* sttcpserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4EBF1AB6C98D0018A61D /* sttcpserver.m */; };
 		D3DD4EC31AB6C98D0018A61D /* sttcpsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4EC01AB6C98D0018A61D /* sttcpsocket.m */; };
 		D3DD4ED31AB80A2A0018A61D /* stnetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DD4ED21AB80A2A0018A61D /* stnetwork.m */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		D305386A1AB2BAA400467896 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D30538711AB2BAED00467896 /* libsmarttoysdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsmarttoysdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30D635B1ADA81EB00A9BF6D /* stutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stutils.m; sourceTree = "<group>"; };
+		D30D635D1ADA820200A9BF6D /* stutils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stutils.h; sourceTree = "<group>"; };
 		D3D61E3A1AC2B5EE0085FDAA /* staudioconfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = staudioconfigure.h; sourceTree = "<group>"; };
 		D3DD4EBA1AB6C97E0018A61D /* sttcprecieve_i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcprecieve_i.h; sourceTree = "<group>"; };
 		D3DD4EBB1AB6C97E0018A61D /* sttcpserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttcpserver.h; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		D30537ED1AB2A93400467896 = {
 			isa = PBXGroup;
 			children = (
-				D3F211351ABEC783006AC27D /* audio */,
 				D30538641AB2BAA400467896 /* include */,
 				D30538661AB2BAA400467896 /* src */,
 				D30538691AB2BAA400467896 /* tests */,
@@ -81,6 +83,7 @@
 		D30538641AB2BAA400467896 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				D3F211351ABEC783006AC27D /* audio */,
 				D3F211211ABC82A2006AC27D /* misc */,
 				D3DD4ECF1AB80A220018A61D /* network */,
 				D3DD4EB91AB6C97E0018A61D /* socket */,
@@ -164,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				D3F211221ABC82A2006AC27D /* stlog.h */,
+				D30D635D1ADA820200A9BF6D /* stutils.h */,
 			);
 			path = misc;
 			sourceTree = "<group>";
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				D3F211241ABC8310006AC27D /* stlog.m */,
+				D30D635B1ADA81EB00A9BF6D /* stutils.m */,
 			);
 			path = misc;
 			sourceTree = "<group>";
@@ -208,8 +213,7 @@
 				D3F211391ABEC7D0006AC27D /* staudiorecorder.h */,
 				D3D61E3A1AC2B5EE0085FDAA /* staudioconfigure.h */,
 			);
-			name = audio;
-			path = ../include/audio;
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +274,7 @@
 			files = (
 				D3F211381ABEC7BC006AC27D /* staudioplayer.m in Sources */,
 				D3DD4EC21AB6C98D0018A61D /* sttcpserver.m in Sources */,
+				D30D635C1ADA81EB00A9BF6D /* stutils.m in Sources */,
 				D3DD4EDB1AB8295F0018A61D /* studpsocket.m in Sources */,
 				D3F2113B1ABEC811006AC27D /* staudiorecorder.m in Sources */,
 				D3DD4EC31AB6C98D0018A61D /* sttcpsocket.m in Sources */,

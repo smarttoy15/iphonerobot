@@ -22,7 +22,7 @@ static const int g_cNumberBuffers = 3; //audio queue buffer个数
     AudioQueueRef m_aq;                                 // audio queue
     
     AudioQueueBufferRef m_aqBuffer[g_cNumberBuffers];   // audio buffers
-    int32_t                        m_bufferByteSize;      // 每个audio buffer的长度
+    UInt32                        m_bufferByteSize;      // 每个audio buffer的长度
     
     BOOL m_valideBuffer[g_cNumberBuffers];
     
@@ -32,7 +32,7 @@ static const int g_cNumberBuffers = 3; //audio queue buffer个数
 - (void)setIsRunning:(BOOL)val;
 
 - (void)setupAudioFormat:(STAudioConfigure)audioConfigure;
-- (int32_t)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds;
+- (UInt32)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds;
 - (BOOL)setupAudioQueue;
 - (void)releaseAudioQueue;
 
@@ -232,14 +232,14 @@ static void audioQueueRunningProc( void *              inUserData,
     m_dataFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
 }
 
-- (int32_t)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds {
+- (UInt32)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds {
     int maxPacketSize = asbDescript.mBytesPerPacket;
     if (maxPacketSize == 0) {   // VBR(变长音频数据)
         STLog(@"error: don't support VBR");
         return MAX_BUFFER_SIZE;
     }
     
-    int32_t numBytesForTime = asbDescript.mSampleRate * maxPacketSize * seconds;
+    UInt32 numBytesForTime = asbDescript.mSampleRate * maxPacketSize * seconds;
     return (numBytesForTime < MAX_BUFFER_SIZE) ? numBytesForTime : MAX_BUFFER_SIZE;
 }
 

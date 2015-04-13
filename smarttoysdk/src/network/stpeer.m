@@ -21,6 +21,7 @@
 #import "socket/studpsocket.h"
 
 #import "misc/stlog.h"
+#import "misc/stutils.h"
 
 #define DEFAULT_PORT 8002
 
@@ -117,12 +118,16 @@
         return;
     }
     
-    int32_t type = (int32_t)head;
-    NSMutableData* data = [[NSMutableData alloc]initWithBytes:&type length:sizeof(int32_t)];
+    UInt32 type = (UInt32)head;
+    BTL_ENDIAN(type, UInt32);
+    NSMutableData* data = [[NSMutableData alloc]initWithBytes:&type length:sizeof(UInt32)];
     
     if (head != emRemove) {     // 删除时，不需要带本地的信息数据
         NSData* msg = [self getPeerInnerData];
         if (msg) {
+            UInt32 msgLen = (UInt32)[msg length];
+            BTL_ENDIAN(msgLen, UInt32);
+            [data appendBytes:&msgLen length:sizeof(UInt32)];
             [data appendData:msg];
         }
     }
@@ -138,24 +143,30 @@
         return;                         // 不会处理自己发给自己的消息的
     }
     
-    const void* ptrData = data.bytes;
-    int32_t length = (int32_t)data.length;
-    
-    if (length < sizeof(int32_t)) {
-        STLog(@"onDataRecieve: error! recieve data struct error!");
-        return;
+    UInt32 length = (UInt32)[data length];
+    if (length < sizeof(UInt32)) {
+        STLog(@"receive data error!");
     }
     
-    int32_t head = *((int32_t*)ptrData);
-    ptrData += sizeof(int32_t);
+    const void* ptrData = data.bytes;
+    // 取出类型头部
+    UInt32 head = *((UInt32*)ptrData);
+    LTB_ENDIAN(head, UInt32);
+    ptrData += sizeof(UInt32);
     
-    int32_t leftDataLength = length - sizeof(int32_t);
-    STPeer* remotePeer = NULL;
+    UInt32 leftDataLength = length - sizeof(UInt32);
     NSData* temp = NULL;
     if (leftDataLength > 0) {
-        temp = [[NSData alloc]initWithBytes:ptrData length:leftDataLength];
+        // 数据内容
+        UInt32 contentLen = *((UInt32*)ptrData);
+        LTB_ENDIAN(contentLen, UInt32);
+        ptrData += sizeof(UInt32);
+        
+        assert(contentLen <= (leftDataLength - sizeof(UInt32)));
+        
+        temp = [[NSData alloc]initWithBytes:ptrData length:contentLen];
     }
-    remotePeer = [self createPeerByData:temp withLocalIp:ip withLocalPort:port];
+    STPeer* remotePeer = [self createPeerByData:temp withLocalIp:ip withLocalPort:port];
     
     switch(head) {
         case emSearch:      // 被搜到了-_-!别人家的搜索

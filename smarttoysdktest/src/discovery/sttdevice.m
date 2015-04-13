@@ -16,11 +16,12 @@
 
 #import <Foundation/Foundation.h>
 #import "misc/stlog.h"
+#import "misc/stutils.h"
 #import "sttdevice.h"
 
 @interface STTDevice()
 - (NSData*)getDataFromString:(NSString*)string;
-- (NSString*)getStringFromBytes:(const void**)pData withLength:(int32_t)length;
+- (NSString*)getStringFromBytes:(const void**)pData withLength:(UInt32)length;
 @end
 
 @implementation STTDevice
@@ -30,7 +31,10 @@
 @synthesize imageUrl = _imageUrl;
 
 - (NSData*)getDataFromString:(NSString*)string {
-    int32_t length = string ? (int32_t)[string length] : 0;
+    UInt32 length = string ? (UInt32)[string length] : 0;
+    if (length != 0) {
+        BTL_ENDIAN(length, UInt32);
+    }
     NSMutableData* data = [[NSMutableData alloc]initWithBytes:&length length:sizeof(length)];
     if (string) {
         [data appendData:[string dataUsingEncoding:NSUTF8StringEncoding]];
@@ -38,17 +42,18 @@
     return data;
 }
 
-- (NSString*)getStringFromBytes:(const void**)pData withLength:(int32_t)length {
-    assert(pData && length >= sizeof(int32_t));
+- (NSString*)getStringFromBytes:(const void**)pData withLength:(UInt32)length {
+    assert(pData && length >= sizeof(UInt32));
     
     NSString* bRet = NULL;
     
     const void* bytes = *pData;
-    int32_t count = *(int32_t*)bytes;
-    bytes += sizeof(int32_t);
+    UInt32 count = *(UInt32*)bytes;
+    LTB_ENDIAN(count, UInt32);
+    bytes += sizeof(UInt32);
     
-    if ((length - sizeof(int32_t)) < count) {
-        STLog(@"getStringFromBytes: error! argument data has an incorrect length!");
+    if ((length - sizeof(UInt32)) < count) {
+        STLog(@"error! argument data has an incorrect length!");
         return NULL;
     }
     
@@ -70,15 +75,37 @@
 }
 
 - (void)setPeerInnerData:(NSData *)data {
-    const void* ptrData = data.bytes;
-    int32_t leftLength = (int32_t)[data length];
+    if (!data) {
+        return;
+    }
     
-    self.title = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - (const void*)data.bytes;
-    self.subTitle = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - (const void*)data.bytes;
-    self.imageUrl = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - (const void*)data.bytes;
+    do {
+        const void* ptrData = data.bytes;
+        UInt32 leftLength = (UInt32)[data length];
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read title error!");
+            break;
+        }
+        const void* ptrLast = ptrData;
+        self.title = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read subTtitle error");
+            break;
+        }
+        ptrLast = ptrData;
+        self.subTitle = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+        
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read imget error");
+            break;
+        }
+        ptrLast = ptrData;
+        self.imageUrl = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+    } while(0);
 }
 
 - (STPeer*)createPeerByData:(NSData *)data withLocalIp:(NSString *)ip withLocalPort:(int)port {

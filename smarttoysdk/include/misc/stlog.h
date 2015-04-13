@@ -11,8 +11,10 @@
 
 #import <Foundation/Foundation.h>
 
-void STLog(NSString* format, ...);
+void __STLog(const char* file, int line, const char*function, NSString* format, ...);
 
-#define NSLog (#warning "You shouldn't use NSLog, using STLog instead!")
+#define STLog(format, arg...) __STLog(__FILE__, __LINE__, __PRETTY_FUNCTION__, format, ##arg)
+
+#define NSLog
 
 #endif

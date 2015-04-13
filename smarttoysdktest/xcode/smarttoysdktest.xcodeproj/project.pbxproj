@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30D63661ADB7D8B00A9BF6D /* stttextprotocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D63651ADB7D8B00A9BF6D /* stttextprotocol.m */; };
 		D324E5061ACECCB200AB09CC /* sttdevicediscover.m in Sources */ = {isa = PBXBuildFile; fileRef = D324E5051ACECCB200AB09CC /* sttdevicediscover.m */; };
 		D324E5091ACECD0600AB09CC /* sttdevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D324E5081ACECD0600AB09CC /* sttdevice.m */; };
 		D3884A3B1AD03BA900230697 /* sttsocketviewcontroller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3884A3A1AD03BA900230697 /* sttsocketviewcontroller.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D30D63641ADB7D8B00A9BF6D /* stttextprotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stttextprotocol.h; sourceTree = "<group>"; };
+		D30D63651ADB7D8B00A9BF6D /* stttextprotocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stttextprotocol.m; sourceTree = "<group>"; };
 		D324E5041ACECCB200AB09CC /* sttdevicediscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttdevicediscover.h; sourceTree = "<group>"; };
 		D324E5051ACECCB200AB09CC /* sttdevicediscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sttdevicediscover.m; sourceTree = "<group>"; };
 		D324E5071ACECD0600AB09CC /* sttdevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sttdevice.h; sourceTree = "<group>"; };
@@ -90,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D30D63631ADB7D8B00A9BF6D /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D30D63641ADB7D8B00A9BF6D /* stttextprotocol.h */,
+				D30D63651ADB7D8B00A9BF6D /* stttextprotocol.m */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 		D324E5031ACECCB200AB09CC /* discovery */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +118,7 @@
 		D3884A301AD03B8400230697 /* socket */ = {
 			isa = PBXGroup;
 			children = (
+				D30D63631ADB7D8B00A9BF6D /* protocol */,
 				D3884A311AD03B8400230697 /* tcp */,
 				D3884A341AD03B8400230697 /* udp */,
 				D3884A391AD03BA900230697 /* sttsocketviewcontroller.h */,
@@ -292,6 +305,7 @@
 			files = (
 				D3E2FD7D1ACD371500F6FB1F /* appdelegate.m in Sources */,
 				D3884A461AD043D700230697 /* stttcpclienthandler.m in Sources */,
+				D30D63661ADB7D8B00A9BF6D /* stttextprotocol.m in Sources */,
 				D3884A401AD042BF00230697 /* stttcpreciever.m in Sources */,
 				D3E4DEC11AD009B5000BB350 /* deviceviewcell.m in Sources */,
 				D324E5061ACECCB200AB09CC /* sttdevicediscover.m in Sources */,

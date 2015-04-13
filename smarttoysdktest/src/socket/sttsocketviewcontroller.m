@@ -17,7 +17,7 @@
 #import "socket/studpsocket.h"
 #import "sttcommander.h"
 
-#define TCP_TRANS_PORT 6501
+#define TCP_TRANS_PORT 6534
 
 #define UDP_TRANS_PORT 5009
 
@@ -129,7 +129,7 @@
     
     NSString* localIp = [STNetwork getLocalIPv4FromWifi];
     if (localIp) {
-        self.txtLocalIp.text = localIp;
+        self.txtLocalIp.text = [NSString stringWithFormat:@"%@:%d", localIp, self.isTCP ? TCP_TRANS_PORT : UDP_TRANS_PORT];
     }
 }
 
@@ -163,7 +163,7 @@
     NSData* message = [self.txtSendMessage.text dataUsingEncoding:NSUTF8StringEncoding];
     
     if (self.isTCP) {
-        message = [STTCommander getCommandTransferData:message];
+        message = [[STTCommander getStringPorotocolData:self.txtSendMessage.text] getTransferData];
         
         if (m_tcpClient.isValid) {
             if ([m_tcpClient send:message]) {

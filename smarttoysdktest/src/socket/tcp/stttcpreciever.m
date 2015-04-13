@@ -25,9 +25,8 @@
 }
 
 - (void)onRecieve:(STTCPSocket *)socket withStream:(NSInputStream *)stream {
-    NSData* data = [STTCommander getCommandDataFromInputStream:stream];
+    NSString* message = [STTCommander getStringProtocolFromInputStream:stream].text;
     
-    NSString* message = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     [m_controller appendMessage:message];
 }
 

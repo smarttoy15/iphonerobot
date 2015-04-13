@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "protocol/stttextprotocol.h"
 
 @interface STTCommander : NSObject
 
 + (NSData*) getCommandTransferData:(NSData*)data;
 + (NSData*) getCommandDataFromInputStream:(NSInputStream*)stream;
+
++ (STTTextProtocol*) getStringPorotocolData:(NSString*)string;
++ (STTTextProtocol*) getStringProtocolFromInputStream:(NSInputStream*)stream;
 
 @end
