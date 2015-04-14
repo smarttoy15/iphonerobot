@@ -9,9 +9,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "sttdevice.h"
 
-@interface mainViewController : UITableViewController
+@interface mainViewController : UITableViewController <STPeerEventHandler>
 
+@property (nonatomic, strong) STTDevice *device;
 
 @end
 
