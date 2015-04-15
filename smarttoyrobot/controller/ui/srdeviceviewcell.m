@@ -1,14 +1,18 @@
-//
-//  deveiceviewcell.m
-//  smarttoyrobot
-//
-//  Created by 张唯 on 15-4-14.
-//  Copyright (c) 2015年 smarttoy. All rights reserved.
-//
 
-#import "deviceviewcell.h"
 
-@implementation STTDeviceviewcell
+/*
+ Copyright (c) 2015 smarttoy. All rights reserved.
+ 
+ Author: newma
+ Date: 2015-4-15
+ Descript: 列表单元
+ 
+ Modified: zhangwei
+ */
+
+#import "srdeviceviewcell.h"
+
+@implementation SRDeviceviewcell
 
 @synthesize deviceInfo = _deviceInfo;
 
@@ -22,7 +26,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setDeviceInfo:(STTDevice *)deviceInfo {
+- (void)setDeviceInfo:(SRDevice *)deviceInfo {
     if (deviceInfo.imageUrl) {
         self.imgHead.image = [UIImage imageNamed:deviceInfo.imageUrl inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
     }

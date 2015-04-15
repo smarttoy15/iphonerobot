@@ -4,16 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Discover View Controller-->
         <scene sceneID="gIu-bc-gNa">
             <objects>
-                <tableViewController id="PO5-ds-0TV" customClass="mainViewController" sceneMemberID="viewController">
+                <tableViewController id="PO5-ds-0TV" customClass="SRDiscoverViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" sectionHeaderHeight="22" sectionFooterHeight="22" id="ztD-Vb-k6Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="device cell" id="t3I-gh-myw" customClass="STTDeviceviewcell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="device cell" rowHeight="120" id="t3I-gh-myw" customClass="SRDeviceviewcell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t3I-gh-myw" id="4Ws-Pg-F4F">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -39,7 +39,7 @@
                                     <outlet property="imgHead" destination="Eqx-bK-Nad" id="o3d-LS-bdb"/>
                                     <outlet property="txtName" destination="UCS-gg-Wrh" id="vDe-wQ-w5z"/>
                                     <outlet property="txtSubTitle" destination="TTp-hz-EY2" id="OJV-pM-XVl"/>
-                                    <segue destination="ggx-rv-Sq2" kind="show" trigger="accessoryAction" id="yST-Bt-iCJ"/>
+                                    <segue destination="ggx-rv-Sq2" kind="show" id="hGo-KP-baB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,6 +54,7 @@
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MFs-du-8ND">
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="搜索">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -61,7 +62,7 @@
                                 <action selector="onSearch:" destination="PO5-ds-0TV" eventType="touchUpInside" id="mwD-bd-ZpE"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VZK-Nq-8eI">
+                        <barButtonItem key="rightBarButtonItem" title="二维码" id="VZK-Nq-8eI">
                             <connections>
                                 <segue destination="yp2-yx-rFL" kind="show" id="gGl-8y-BHy"/>
                             </connections>
@@ -115,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHE-2O-m2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4403" y="1335"/>
+            <point key="canvasLocation" x="2968" y="1180"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uOM-Ng-qkw">
@@ -163,6 +164,6 @@
         <image name="image.jpg" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yST-Bt-iCJ"/>
+        <segue reference="hGo-KP-baB"/>
     </inferredMetricsTieBreakers>
 </document>

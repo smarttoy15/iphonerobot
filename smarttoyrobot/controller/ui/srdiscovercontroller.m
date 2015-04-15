@@ -1,28 +1,28 @@
+/*
+ Copyright (c) 2015 smarttoy. All rights reserved.
+ 
+ Author: newma
+ Date: 2015-4-15
+ Descript: 设备发现界面
+ 
+ Modified: zhangwei
+ */
 
-//
-//  STTDeviceDiscover.m
-//  smarttoysdktest
-//
-//  Created by newma on 4/3/15.
-//  Copyright (c) 2015 smarttoy. All rights reserved.
-//
-
-#import "mainviewcontroller.h"
+#import "srdiscovercontroller.h"
 #import "network/stnetwork.h"
 #import "misc/stlog.h"
-#import "deviceviewcell.h"
+#import "srdeviceviewcell.h"
 
 #define DISCOVERY_PORT 8002
-#define CELL_HEIGHT 100
 #define REUSE_CELL_IDEN @"device cell"
 
-@interface mainViewController () {
+@interface SRDiscoverViewController () {
     NSMutableArray* m_robotList;         // 搜索到的设备列表
 }
 
 @end
 
-@implementation mainViewController
+@implementation SRDiscoverViewController
 
 @synthesize device = _device;
 
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     NSString* strIP = [STNetwork getLocalIPv4FromWifi];
     if (!self.device) {
-        self.device = [[STTDevice alloc]init];
+        self.device = [[SRDevice alloc]init];
         self.device.localIp = strIP;
         self.device.servicePort = DISCOVERY_PORT;
         self.device.delegate = self;
@@ -58,16 +58,11 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    STTDeviceviewcell* cell = [tableView dequeueReusableCellWithIdentifier:REUSE_CELL_IDEN forIndexPath:indexPath];
+    SRDeviceviewcell* cell = [tableView dequeueReusableCellWithIdentifier:REUSE_CELL_IDEN forIndexPath:indexPath];
     
-    STTDevice* device = [m_robotList objectAtIndex:indexPath.row];
+    SRDevice* device = [m_robotList objectAtIndex:indexPath.row];
     [cell setDeviceInfo:device];
     return cell;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //    return cell.frame.size.height;
-    return CELL_HEIGHT;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
