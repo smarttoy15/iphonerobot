@@ -3,7 +3,7 @@
  
  Author: zhangwei
  Date: 2015-4-1
- Descript: 主界面
+ Descript: 机器人控制界面
  
  Modified:
  */

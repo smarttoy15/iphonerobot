@@ -15,11 +15,13 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "SRDevice.h"
+#import "misc/stlog.h"
+#import "misc/stutils.h"
+#import "srdevice.h"
 
 @interface SRDevice()
 - (NSData*)getDataFromString:(NSString*)string;
-- (NSString*)getStringFromBytes:(const void**)pData withLength:(int32_t)length;
+- (NSString*)getStringFromBytes:(const void**)pData withLength:(UInt32)length;
 @end
 
 @implementation SRDevice
@@ -29,33 +31,42 @@
 @synthesize imageUrl = _imageUrl;
 
 - (NSData*)getDataFromString:(NSString*)string {
-    assert(string);
-    int32_t length = (int32_t)[string length];
+    UInt32 length = string ? (UInt32)[string length] : 0;
+    if (length != 0) {
+        BTL_ENDIAN(length, UInt32);
+    }
     NSMutableData* data = [[NSMutableData alloc]initWithBytes:&length length:sizeof(length)];
-    [data appendData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+    if (string) {
+        [data appendData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+    }
     return data;
 }
 
-- (NSString*)getStringFromBytes:(const void**)pData withLength:(int32_t)length {
-    assert(pData && length > sizeof(int32_t));
+- (NSString*)getStringFromBytes:(const void**)pData withLength:(UInt32)length {
+    assert(pData && length >= sizeof(UInt32));
+    
+    NSString* bRet = NULL;
     
     const void* bytes = *pData;
-    int32_t count = *(int32_t*)bytes;
-    bytes += sizeof(int32_t);
+    UInt32 count = *(UInt32*)bytes;
+    LTB_ENDIAN(count, UInt32);
+    bytes += sizeof(UInt32);
     
-    if ((length - sizeof(int32_t)) < count) {
-        STLog(@"getStringFromBytes: error! argument data has an incorrect length!");
+    if ((length - sizeof(UInt32)) < count) {
+        STLog(@"error! argument data has an incorrect length!");
         return NULL;
     }
     
-    NSString* bRet = [[NSString alloc]initWithBytes:bytes length:count encoding:NSUTF8StringEncoding];
-    bytes += count;
+    if (count > 0) {
+        bRet = [[NSString alloc]initWithBytes:bytes length:count encoding:NSUTF8StringEncoding];
+        bytes += count;
+    }
     
     *pData = bytes;
     return bRet;
 }
 
-- (NSData*)getContentData {
+- (NSData*)getPeerInnerData {
     NSMutableData* data = [[NSMutableData alloc]initWithData:[self getDataFromString:self.title]];
     [data appendData:[self getDataFromString:self.subTitle]];
     [data appendData:[self getDataFromString:self.imageUrl]];
@@ -63,17 +74,46 @@
     return data;
 }
 
-- (void)parseContentData:(NSData*)data {
-    assert(data);
-    const void* ptrData = data.bytes;
-    const void* ptrHead = ptrData;
-    int32_t leftLength = (int32_t)data.length;
-    self.title = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - ptrHead;
-    self.subTitle = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - ptrHead;
-    self.imageUrl = [self getStringFromBytes:&ptrData withLength:leftLength];
-    leftLength -= ptrData - ptrHead;
+- (void)setPeerInnerData:(NSData *)data {
+    if (!data) {
+        return;
+    }
+    
+    do {
+        const void* ptrData = data.bytes;
+        UInt32 leftLength = (UInt32)[data length];
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read title error!");
+            break;
+        }
+        const void* ptrLast = ptrData;
+        self.title = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read subTtitle error");
+            break;
+        }
+        ptrLast = ptrData;
+        self.subTitle = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+        
+        if (leftLength < sizeof(UInt32)) {
+            STLog(@"read imget error");
+            break;
+        }
+        ptrLast = ptrData;
+        self.imageUrl = [self getStringFromBytes:&ptrData withLength:leftLength];
+        leftLength -= ptrData - ptrLast;
+    } while(0);
+}
+
+- (STPeer*)createPeerByData:(NSData *)data withLocalIp:(NSString *)ip withLocalPort:(int)port {
+    SRDevice* device = [[SRDevice alloc]init];
+    device.servicePort = port;
+    device.localIp = ip;
+    [device setPeerInnerData:data];
+    return device;
 }
 
 @end
