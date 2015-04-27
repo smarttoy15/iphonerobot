@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8zF-LC-IKw">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="724"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0a-wt-DEO">
                                 <rect key="frame" x="227" y="614" width="70" height="70"/>
@@ -133,22 +133,21 @@
                                     <action selector="actionMusic:" destination="ggx-rv-Sq2" eventType="touchUpInside" id="NQb-O9-ldx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgu-PL-hBS">
-                                <rect key="frame" x="801" y="654" width="75" height="30"/>
-                                <state key="normal" title="LEDSwitch">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hR-xH-oq5">
+                                <rect key="frame" x="16" y="35" width="80" height="80"/>
+                                <state key="normal" title="Button" image="sr_return_back.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="actionLEDSwitch:" destination="ggx-rv-Sq2" eventType="touchUpInside" id="8Ut-5O-e9o"/>
+                                    <action selector="actionBack:" destination="ggx-rv-Sq2" eventType="touchUpInside" id="5Ob-2S-ycN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukl-8P-F2M">
-                                <rect key="frame" x="928" y="72" width="80" height="80"/>
+                                <rect key="frame" x="928" y="35" width="80" height="80"/>
                                 <state key="normal" title="Button" image="sr_switch_camera.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="actionLEDSwitch:" destination="ggx-rv-Sq2" eventType="touchUpInside" id="n4m-vQ-jV2"/>
                                     <action selector="actionSwitchCamera:" destination="ggx-rv-Sq2" eventType="touchUpInside" id="1qh-Jl-W3Y"/>
                                 </connections>
                             </button>
@@ -156,13 +155,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Yin-40-LhB">
-                        <nil key="title"/>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="SRButtonBack" destination="9hR-xH-oq5" id="cTX-NR-NMv"/>
+                        <outlet property="SRButtonCameraChange" destination="ukl-8P-F2M" id="Jac-qQ-9Yj"/>
+                        <outlet property="SRButtonDance" destination="Fi6-v8-IkD" id="Jbh-z3-Lg9"/>
+                        <outlet property="SRButtonMusic" destination="l5k-cV-Kpg" id="sEj-8n-2jr"/>
+                        <outlet property="SRButtonMute" destination="b0a-wt-DEO" id="RoN-2X-z8r"/>
+                        <outlet property="SRButtonSendEmoji" destination="JLB-nJ-4GN" id="cNL-uX-acO"/>
+                        <outlet property="SRButtonSpeak" destination="7eP-3J-hDs" id="Xx2-fj-SCr"/>
                         <outlet property="SRVedioView" destination="8zF-LC-IKw" id="22d-G4-BTB"/>
                     </connections>
                 </viewController>
@@ -218,6 +221,7 @@
         <image name="sr_face_smile.png" width="128" height="128"/>
         <image name="sr_music.png" width="128" height="128"/>
         <image name="sr_mute.png" width="128" height="128"/>
+        <image name="sr_return_back.png" width="128" height="128"/>
         <image name="sr_speak.png" width="128" height="128"/>
         <image name="sr_switch_camera.png" width="128" height="128"/>
     </resources>

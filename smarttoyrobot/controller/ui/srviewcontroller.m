@@ -10,7 +10,12 @@
 
 #import "srviewcontroller.h"
 
-@interface SRViewContorller ()
+@interface SRViewContorller () {
+
+bool m_isMute;
+bool m_isSpeaking;
+bool m_isChangeCamera;
+}
 
 @end
 
@@ -23,8 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.SRLeftSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(0, 400, 300, 20)];
-    self.SRRightSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(750, 400, 300, 20)];
+    self.navigationController.navigationBarHidden = YES;
+    self.SRLeftSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(0, 350, 300, 20)];
+    self.SRRightSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(750, 350, 300, 20)];
     [self.view addSubview:self.SRLeftSlider];
     [self.view addSubview:self.SRRightSlider];
     // Do any additional setup after loading the view, typically from a nib.
@@ -37,12 +43,31 @@
 
 // button press action
 - (IBAction)actionMute:(id)sender {
+    if ( m_isMute == NO) {
+        [self.SRButtonMute setBackgroundImage:[UIImage imageNamed:@"sr_mute_pressed.png"]
+                                   forState:UIControlStateNormal];
+        m_isMute = YES;
+    } else {
+        [self.SRButtonMute setBackgroundImage:[UIImage imageNamed:@"sr_mute.png"]
+                                   forState:UIControlStateNormal];
+        m_isMute = NO;
+    }
 }
 
 - (IBAction)actionDance:(id)sender {
 }
 
 - (IBAction)actionSpeak:(id)sender {
+    
+    if (m_isSpeaking == NO) {
+        [self.SRButtonSpeak setBackgroundImage:[UIImage imageNamed:@"sr_speak_pressed.png"]
+                                    forState:UIControlStateNormal];
+        m_isSpeaking = YES;
+    } else {
+        [self.SRButtonSpeak setBackgroundImage:[UIImage imageNamed:@"sr_speak.png"]
+                                    forState:UIControlStateNormal];
+        m_isSpeaking = NO;
+    }
 }
 
 - (IBAction)actionSendEmoji:(id)sender {
@@ -51,10 +76,21 @@
 - (IBAction)actionMusic:(id)sender {
 }
 
-- (IBAction)actionLEDSwitch:(id)sender {
+- (IBAction)actionSwitchCamera:(id)sender {
+    
+    if (m_isChangeCamera == NO) {
+        [self.SRButtonCameraChange setBackgroundImage:[UIImage imageNamed:@"sr_switch_camera_pressed.png"]
+                                           forState:UIControlStateNormal];
+        m_isChangeCamera = YES;
+    } else {
+        [self.SRButtonCameraChange setBackgroundImage:[UIImage imageNamed:@"sr_switch_camera.png"]
+                                           forState:UIControlStateNormal];
+
+        m_isChangeCamera = NO;
+    }
 }
 
-- (IBAction)actionSwitchCamera:(id)sender {
+- (IBAction)actionBack:(id)sender {
 }
 
 @end

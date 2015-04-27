@@ -14,6 +14,13 @@
 @interface SRViewContorller : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *SRVedioView;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonMute;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonSpeak;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonCameraChange;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonDance;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonSendEmoji;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonMusic;
+@property (strong, nonatomic) IBOutlet UIButton *SRButtonBack;
 
 @property SRContorlSlider *SRLeftSlider;
 @property SRContorlSlider *SRRightSlider;
