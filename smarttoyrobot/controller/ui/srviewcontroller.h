@@ -13,6 +13,8 @@
 
 @interface SRViewContorller : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *SRVedioView;
+
 @property SRContorlSlider *SRLeftSlider;
 @property SRContorlSlider *SRRightSlider;
 
