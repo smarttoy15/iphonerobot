@@ -3,18 +3,18 @@
  
  Author: zhangwei
  Date: 2015-4-1
- Descript: 移动相关协议
+ Descript: 播放音乐相关协议
  
  Modified:
  */
 
+
 #import <Foundation/Foundation.h>
-#import "srmoveprotocol.h"
+#import "srmusicprotocol.h"
 
+@implementation SRMusicProtocol
 
-@implementation SRMoveProtocol
-
-- (SRMoveProtocol*)initWithType:(int)type {
+- (SRMusicProtocol*) initWithType:(int)type {
     self = [super initWithType:type];
     return self;
 }
@@ -23,7 +23,7 @@
     return NULL;
 }
 
-- (void)setContentData:(id)data {
+- (void) setContentData:(NSData *)data {
     
 }
 
