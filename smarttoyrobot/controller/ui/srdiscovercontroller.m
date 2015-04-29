@@ -12,6 +12,7 @@
 #import "network/stnetwork.h"
 #import "misc/stlog.h"
 #import "srdeviceviewcell.h"
+#import "srviewcontroller.h"
 
 #define DISCOVERY_PORT 8002
 #define REUSE_CELL_IDEN @"device cell"
@@ -70,6 +71,18 @@
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier]isEqual:@"maincontroller"]) {
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        SRDevice* device = [m_robotList objectAtIndex:indexPath.row];
+        SRViewController* controller = segue.destinationViewController;
+        controller.SRServerIP = device.localIp;
+    }
+}
+
+
+/*设备发现相关代码*/
+
 - (void)onRemotePeerAdd:(STPeer *)local withRemotePeerIp:(NSString *)remoteIp {
     STPeer* peer = [local getPeerFromIp:remoteIp];
     if (peer) {
@@ -104,5 +117,6 @@
     [self.device searchPeer];
     [self.tableView reloadData];
 }
+
 
 @end

@@ -24,13 +24,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCS-gg-Wrh">
                                             <rect key="frame" x="240" y="8" width="87" height="38"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTp-hz-EY2">
                                             <rect key="frame" x="240" y="73" width="95" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -39,7 +39,7 @@
                                     <outlet property="imgHead" destination="Eqx-bK-Nad" id="o3d-LS-bdb"/>
                                     <outlet property="txtName" destination="UCS-gg-Wrh" id="vDe-wQ-w5z"/>
                                     <outlet property="txtSubTitle" destination="TTp-hz-EY2" id="OJV-pM-XVl"/>
-                                    <segue destination="ggx-rv-Sq2" kind="show" id="hGo-KP-baB"/>
+                                    <segue destination="ggx-rv-Sq2" kind="show" identifier="maincontroller" id="hGo-KP-baB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -64,7 +64,7 @@
                         </button>
                         <barButtonItem key="rightBarButtonItem" title="二维码" id="VZK-Nq-8eI">
                             <connections>
-                                <segue destination="yp2-yx-rFL" kind="show" id="gGl-8y-BHy"/>
+                                <segue destination="yp2-yx-rFL" kind="show" identifier="searchQRcode" id="gGl-8y-BHy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="1524" y="205"/>
         </scene>
-        <!--View Contorller-->
+        <!--View Controller-->
         <scene sceneID="Q8M-qE-caN">
             <objects>
-                <viewController id="ggx-rv-Sq2" customClass="SRViewContorller" sceneMemberID="viewController">
+                <viewController id="ggx-rv-Sq2" customClass="SRViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vhw-vo-fXh"/>
                         <viewControllerLayoutGuide type="bottom" id="eEK-eM-MAX"/>
@@ -226,6 +226,6 @@
         <image name="sr_switch_camera.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="srV-IA-wBW"/>
+        <segue reference="hGo-KP-baB"/>
     </inferredMetricsTieBreakers>
 </document>

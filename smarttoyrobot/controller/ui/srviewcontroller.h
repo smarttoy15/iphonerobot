@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "srcontrolslider.h"
 
-@interface SRViewContorller : UIViewController
+@interface SRViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *SRVedioView;
 @property (strong, nonatomic) IBOutlet UIButton *SRButtonMute;
@@ -24,5 +24,8 @@
 
 @property SRContorlSlider *SRLeftSlider;
 @property SRContorlSlider *SRRightSlider;
+
+
+@property NSString* SRServerIP;
 
 @end

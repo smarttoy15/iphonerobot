@@ -7,23 +7,27 @@
  
  Modified:
  */
+#define TCP_TRANS_PORT 6534
 
 #import "srviewcontroller.h"
+#import "misc/stlog.h"
 
-@interface SRViewContorller () {
+@interface SRViewController () {
 
-bool m_isMute;
-bool m_isSpeaking;
-bool m_isChangeCamera;
+    bool m_isMute;
+    bool m_isSpeaking;
+    bool m_isChangeCamera;
+    
 }
 
 @end
 
 
-@implementation SRViewContorller
+@implementation SRViewController
 
 @synthesize SRRightSlider = _SRRightSlider;
 @synthesize SRLeftSlider = _SRLeftSlider;
+@synthesize SRServerIP = _SRServerIP;
 
 
 - (void)viewDidLoad {
@@ -32,7 +36,7 @@ bool m_isChangeCamera;
     self.SRLeftSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(0, 350, 300, 20)];
     self.SRRightSlider = [[SRContorlSlider alloc] initWithFrame:CGRectMake(750, 350, 300, 20)];
     [self.view addSubview:self.SRLeftSlider];
-    [self.view addSubview:self.SRRightSlider];
+    [self.view addSubview:self.SRRightSlider];    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
