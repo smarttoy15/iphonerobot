@@ -20,12 +20,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *SRButtonDance;
 @property (strong, nonatomic) IBOutlet UIButton *SRButtonSendEmoji;
 @property (strong, nonatomic) IBOutlet UIButton *SRButtonMusic;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonBack;
 
+@property (strong, nonatomic) IBOutlet UILabel *SRStatusInfo;
 @property SRContorlSlider *SRLeftSlider;
 @property SRContorlSlider *SRRightSlider;
 
 
 @property NSString* SRServerIP;
+
+- (void)appendMessage:(NSString*)message;
 
 @end

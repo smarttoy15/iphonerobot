@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
     NSString* strIP = [STNetwork getLocalIPv4FromWifi];
     if (!self.device) {
         self.device = [[SRDevice alloc]init];

@@ -19,7 +19,7 @@
 typedef enum {
     SRC_NONE,
     SRC_FORWARD,
-    SRC_BACKWARD
+    SRC_BACKWARD,
     SRC_TURN_LEFT,
     SRC_TURN_RIGHT,
     SRC_STOP,
