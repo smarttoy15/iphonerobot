@@ -234,7 +234,7 @@
 }
 
 - (IBAction)actionSendEmoji:(id)sender {
-    SREmojiProtocol *pro = [[SREmojiProtocol alloc] initWithType:SRC_EMOJI_INFO];
+    SREmojiProtocol *pro = [[SREmojiProtocol alloc] initWithType:SRC_EMOJI_INFO emotion:FACE_SMILE];
     [m_tcpClient send:[pro getTransferData]];
 }
 

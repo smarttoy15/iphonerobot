@@ -9,7 +9,10 @@
  */
 
 #import "network/protocol/stprotocol.h"
+#import "sremoji.h"
 
 @interface SREmojiProtocol : STBasicProtocol
 
+- (SREmojiProtocol*) initWithType:(int)type;
+- (SREmojiProtocol*) initWithType:(int)type emotion:(SREmoji)emotion;
 @end

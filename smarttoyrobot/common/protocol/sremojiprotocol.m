@@ -42,9 +42,10 @@
 }
 
 - (NSData*) getContentData {
-    BTL_ENDIAN(m_curEmotion, UInt32);
+    int tmpInt = m_curEmotion;
+    BTL_ENDIAN(tmpInt, UInt32);
     
-    return [NSData dataWithBytes:&m_curEmotion
+    return [[NSData alloc ]initWithBytes:&tmpInt
                           length:sizeof(m_curEmotion)];
 }
 
