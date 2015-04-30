@@ -4,7 +4,16 @@
  Author: zhangwei
  Date: 2015-4-1
  Descript:
- 
+ 当前完成功能：
+    1.机器人移动通信协议
+    2.机器人跳舞通信协议
+    3.机器人转换摄像头协议
+    4.机器人发送表情协议
+    5.机器人播放音乐协议
+ 未完成：
+    1.按住说话
+    2.接受视频流
+    3.静音
  Modified:
  */
 
@@ -42,12 +51,39 @@
     
 }
 
+/*
+ *TCP连接相关函数
+ */
 - (void)initTCP;
 - (void)startTCP;
 - (void)stopTCP;
 
+/*
+ *设置定时器每个周期检查滑杆状态
+ */
 - (void)startTimer;
 - (void)stopTimer;
+
+/*
+ *检查滑杆状态，并转换成协议
+ */
+- (void)checkSliderStatus;
+
+/*
+ * 在label中显示出TCP通信中的Log
+ */
+- (void)appendMessage:(NSString*)message;
+
+/*
+ *按钮触发的动作
+ */
+
+- (IBAction)actionMute:(id)sender; //静音，功能未完成
+- (IBAction)actionSpeak:(id)sender; //按住说话,未完成
+- (IBAction)actionDance:(id)sender; //发送跳舞协议
+- (IBAction)actionSendEmoji:(id)sender; //发送表情
+- (IBAction)actionMusic:(id)sender; //发送播放音乐请求
+- (IBAction)actionSwitchCamera:(id)sender; //发送转换摄像头请求
 
 @end
 
