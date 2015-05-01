@@ -6,8 +6,10 @@
  Descript:
  */
 
+#import "misc/stlog.h"
 #import "srtcpclienthandler.h"
 #import "srviewcontroller.h"
+
 
 @interface SRTCPClientHandler () {
     SRViewController* m_controller;
@@ -26,11 +28,11 @@
 }
 
 - (void)onConnected:(STTCPSocket *)TCPSocket {
-    [m_controller appendMessage:[NSString stringWithFormat:@"socket %d connected!", TCPSocket.socketId]];
+    STLog(@"socket %d connected!", TCPSocket.socketId);
 }
 
 - (void)onDisconnected:(STTCPSocket *)TCPSocket {
-    [m_controller appendMessage:[NSString stringWithFormat:@"socket %d disconnected!", TCPSocket.socketId]];
+    STLog(@"socket %d disconnected!", TCPSocket.socketId);
 }
 
 @end

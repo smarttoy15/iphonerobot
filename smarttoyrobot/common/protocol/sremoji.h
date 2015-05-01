@@ -10,14 +10,14 @@
 #define smarttoyrobot_sremoji_h
 
 typedef enum {
-    FACE_ANGERY,
-    FACE_SMILE,
-    FACE_CHEER,
-    FACE_CRY,
-    FACE_LAUGH,
-    FACE_SAD,
-    FACE_SHY,
-    FACE_BORING,
-} SREmoji;
+    EM_FACE_ANGERY,
+    EM_FACE_SMILE,
+    EM_FACE_CHEER,
+    EM_FACE_CRY,
+    EM_FACE_LAUGH,
+    EM_FACE_SAD,
+    EM_FACE_SHY,
+    EM_FACE_BORING,
+} SREMOJI;
 
 #endif

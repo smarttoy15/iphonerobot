@@ -14,30 +14,31 @@
 #import "misc/stutils.h"
 
 @interface SRErrorProtocol() {
-    SRErrorCode m_errorCode;
+    SRERRORCODE m_errorCode;
 }
 @end
 
 @implementation SRErrorProtocol
 
-- (SRErrorProtocol*) initWithType:(int)type errorCode:(SRErrorCode)error{
+- (SRErrorProtocol*) initWithType:(int)type errorCode:(SRERRORCODE)error{
     self = [super initWithType:type];
     m_errorCode = error;
     return self;
 }
 
-- (SRErrorCode) getErrorCode {
+- (SRERRORCODE) getErrorCode {
     return m_errorCode;
 }
 
-- (void) setErrorCode:(SRErrorCode)error {
+- (void) setErrorCode:(SRERRORCODE)error {
     m_errorCode = error;
 }
 
 - (NSData*)getContentData {
-    BTL_ENDIAN(m_errorCode, UInt32);
-    return [NSData dataWithBytes:&m_errorCode
-                          length:sizeof(m_errorCode)];
+    int tmpInt = m_errorCode;
+    BTL_ENDIAN(tmpInt, UInt32);
+    return [NSData dataWithBytes:&tmpInt
+                          length:sizeof(tmpInt)];
 }
 
 - (void) setContentData:(NSData *)data {

@@ -77,7 +77,7 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         SRDevice* device = [m_robotList objectAtIndex:indexPath.row];
         SRViewController* controller = segue.destinationViewController;
-        controller.SRServerIP = device.localIp;
+        controller.serverIP = device.localIp;
     }
 }
 

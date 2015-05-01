@@ -14,14 +14,14 @@
 #import "misc/stutils.h"
 
 @interface SREmojiProtocol () {
-    SREmoji m_curEmotion;
+    SREMOJI m_curEmotion;
 }
 
 @end
 
 @implementation SREmojiProtocol
 
-- (SREmojiProtocol*) initWithType:(int)type emotion:(SREmoji)emotion {
+- (SREmojiProtocol*) initWithType:(int)type emotion:(SREMOJI)emotion {
     self = [super initWithType:type];
     m_curEmotion = emotion;
     return self;
@@ -29,15 +29,15 @@
 
 - (SREmojiProtocol*) initWithType:(int)type {
     self = [self initWithType: type
-                      emotion: FACE_SMILE];
+                      emotion: 1];
     return self;
 }
 
-- (void) setEmoji:(SREmoji)emoji {
+- (void) setEmoji:(SREMOJI)emoji {
     m_curEmotion = emoji;
 }
 
-- (SREmoji) getEmotion {
+- (SREMOJI) getEmotion {
     return m_curEmotion;
 }
 

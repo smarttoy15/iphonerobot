@@ -17,6 +17,6 @@ typedef enum  {
     // 播放音乐
     EC_PLAY_MUSIC_FAILED,
     EC_STOP_MUSIC_FAILED
-}SRErrorCode;
+}SRERRORCODE;
 
 #endif

@@ -166,14 +166,14 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="SRButtonCameraChange" destination="ukl-8P-F2M" id="Jac-qQ-9Yj"/>
-                        <outlet property="SRButtonDance" destination="Fi6-v8-IkD" id="Jbh-z3-Lg9"/>
-                        <outlet property="SRButtonMusic" destination="l5k-cV-Kpg" id="sEj-8n-2jr"/>
-                        <outlet property="SRButtonMute" destination="b0a-wt-DEO" id="RoN-2X-z8r"/>
-                        <outlet property="SRButtonSendEmoji" destination="JLB-nJ-4GN" id="cNL-uX-acO"/>
-                        <outlet property="SRButtonSpeak" destination="7eP-3J-hDs" id="Xx2-fj-SCr"/>
-                        <outlet property="SRStatusInfo" destination="kVG-jJ-qD8" id="Eol-E2-Faz"/>
-                        <outlet property="SRVedioView" destination="8zF-LC-IKw" id="22d-G4-BTB"/>
+                        <outlet property="buttonCameraChange" destination="ukl-8P-F2M" id="6Cp-QH-Iyy"/>
+                        <outlet property="buttonDance" destination="Fi6-v8-IkD" id="KIG-FX-kbj"/>
+                        <outlet property="buttonMusic" destination="l5k-cV-Kpg" id="A12-kR-0gg"/>
+                        <outlet property="buttonMute" destination="b0a-wt-DEO" id="BG3-O4-Ur9"/>
+                        <outlet property="buttonSendEmoji" destination="JLB-nJ-4GN" id="kRk-VP-cfW"/>
+                        <outlet property="buttonSpeak" destination="7eP-3J-hDs" id="r2m-HJ-GAI"/>
+                        <outlet property="statusInfo" destination="kVG-jJ-qD8" id="bkf-jn-Tmh"/>
+                        <outlet property="vedioView" destination="8zF-LC-IKw" id="BCR-ig-SNl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oHE-2O-m2W" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,21 +13,24 @@
 
 @interface SRViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIImageView *SRVedioView;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonMute;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonSpeak;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonCameraChange;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonDance;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonSendEmoji;
-@property (strong, nonatomic) IBOutlet UIButton *SRButtonMusic;
-
-@property (strong, nonatomic) IBOutlet UILabel *SRStatusInfo;
-@property SRContorlSlider *SRLeftSlider;
-@property SRContorlSlider *SRRightSlider;
+@property (strong, nonatomic) IBOutlet UIImageView *vedioView;
+@property (strong, nonatomic) IBOutlet UIButton *buttonMute;
+@property (strong, nonatomic) IBOutlet UIButton *buttonSpeak;
+@property (strong, nonatomic) IBOutlet UIButton *buttonCameraChange;
+@property (strong, nonatomic) IBOutlet UIButton *buttonDance;
+@property (strong, nonatomic) IBOutlet UIButton *buttonSendEmoji;
+@property (strong, nonatomic) IBOutlet UIButton *buttonMusic;
 
 
-@property NSString* SRServerIP;
+@property SRContorlSlider *leftSlider;
+@property SRContorlSlider *rightSlider;
 
+
+@property NSString* serverIP;
+
+#ifdef DEBUG
+@property (strong, nonatomic) IBOutlet UILabel *statusInfo;
 - (void)appendMessage:(NSString*)message;
+#endif
 
 @end

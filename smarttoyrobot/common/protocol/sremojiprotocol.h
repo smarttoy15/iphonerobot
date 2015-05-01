@@ -14,5 +14,5 @@
 @interface SREmojiProtocol : STBasicProtocol
 
 - (SREmojiProtocol*) initWithType:(int)type;
-- (SREmojiProtocol*) initWithType:(int)type emotion:(SREmoji)emotion;
+- (SREmojiProtocol*) initWithType:(int)type emotion:(SREMOJI)emotion;
 @end

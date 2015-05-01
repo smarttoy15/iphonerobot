@@ -9,6 +9,7 @@
 #import "srtcpreciever.h"
 #import "srviewcontroller.h"
 #import "srcommander.h"
+#import "misc/stlog.h"
 
 @interface SRTCPReciever () {
     SRViewController* m_controller;
@@ -25,17 +26,15 @@
 }
 
 - (void)onRecieve:(STTCPSocket *)socket withStream:(NSInputStream *)stream {
-    NSString* message = [SRCommander getStringProtocolFromInputStream:stream].text;
     
-    [m_controller appendMessage:message];
 }
 
 - (void)onRecieveEnd:(STTCPSocket *)socket {
-    [m_controller appendMessage:@"recieve end!"];
+    STLog(@"receive end");
 }
 
 - (void)onRecieveError:(STTCPSocket *)socket withError:(NSString *)errCode {
-    [m_controller appendMessage:@"recieve error when connect to other tcp socket!"];
+    STLog(@"recieve error when connect to other tcp socket!");
 }
 
 @end
