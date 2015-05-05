@@ -3,13 +3,13 @@
  
  Author: zhangwei
  Date: 2015-4-1
- Descript: 移动相关协议
+ Descript: 播放音乐相关协议
  
  Modified:
  */
 
 #import "network/protocol/stprotocol.h"
 
-@interface SRMoveProtocol : STBasicProtocol
+@interface SRMusicProtocol : STBasicProtocol
 
 @end

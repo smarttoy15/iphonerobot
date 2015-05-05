@@ -21,10 +21,10 @@
 #import <CoreMotion/CoreMotion.h>
 #import "srcontrolslider.h"
 
-#define SR_SLIDER_MAX_VALUE 100.0
-#define SR_SLIDER_MIN_VALUE 0.0
-#define SR_SLIDER_INIT_VALUE 50.0
-#define SR_SLIDER_TRANSFORM_ANGLE 1.57079633
+#define SR_SLIDER_MAX_VALUE 50.0
+#define SR_SLIDER_MIN_VALUE -50.0
+#define SR_SLIDER_INIT_VALUE 0.0
+#define SR_SLIDER_TRANSFORM_ANGLE -1.57079633
 
 
 @implementation SRContorlSlider
