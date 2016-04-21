@@ -9,35 +9,36 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#import "audio/staudioplayer.h"
-#import "misc/stlog.h"
+#import "STAudioPlayer.h"
+#import "STAudioPackages.h"
 
 #define DEFAULT_SAMPLE_RATE 8000
 #define MAX_BUFFER_SIZE 0x50000                // audio queue 的每一个buffer的最大长度为 320k bytes
 
-static const int g_cNumberBuffers = 3; //audio queue buffer个数
+#define QUEUE_BUFFER_NUMBER  3                  // audio queue buffer个数
 
 @interface STAudioPlayer () {
     AudioStreamBasicDescription   m_dataFormat;         // audio queue 的参数
     AudioQueueRef m_aq;                                 // audio queue
     
-    AudioQueueBufferRef m_aqBuffer[g_cNumberBuffers];   // audio buffers
-    UInt32                        m_bufferByteSize;      // 每个audio buffer的长度
-    
-    BOOL m_valideBuffer[g_cNumberBuffers];
-    
-    Float32 m_maxBufferSeconds;                            // 每个audio queue buffer最大能存放的音频时间（秒数），最终audio queue buffer的长度是不会超过MAX_BUFFER_SIZE的
+    AudioQueueBufferRef m_aqBuffer[QUEUE_BUFFER_NUMBER];   // audio buffers
+   
+    BOOL m_valideBuffer[QUEUE_BUFFER_NUMBER];
 }
 
-- (void)setIsRunning:(BOOL)val;
+@property (nonatomic, readonly) BOOL isWantStop;
+@property (nonatomic, strong) STAudioPackages* musicPackages;
+@property (nonatomic, assign) BOOL isMusicLooping;
 
-- (void)setupAudioFormat:(STAudioConfigure)audioConfigure;
+- (void)continuePlay;
+- (void)clearMusic;
+
+- (void)setPlaying:(BOOL)val;
 - (UInt32)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds;
-- (BOOL)setupAudioQueue;
-- (void)releaseAudioQueue;
+
 
 - (int)getValidateBufferIndex;
-- (BOOL)checkAllBuffersValidate;
+- (void)setValidateAllBuffer:(BOOL)val;
 - (void)invalidateBuffer:(AudioQueueBufferRef)buffer withInvalidate:(BOOL)val;
 @end
 
@@ -47,8 +48,14 @@ static void audioQueueOutputCallback (void *inUserData, AudioQueueRef inAQ, Audi
     
     [player invalidateBuffer:inBuffer withInvalidate:true];
     
-    if (player.delegate && [player checkAllBuffersValidate]) {
-        [player.delegate onNoMoreDataToPlay:player];
+    if (player.delegate) {
+        if (player.musicPackages != NULL) {
+            [player continuePlay];
+        } else {
+            if ([player.delegate respondsToSelector:@selector(onBufferPlayEnd:withMaxBufferSize:)]) {
+                [player.delegate onBufferPlayEnd:player withMaxBufferSize:player.audioQueueBufferSize];
+            }
+        }
     }
 }
 
@@ -57,90 +64,101 @@ static void audioQueueRunningProc( void *              inUserData,
                                   AudioQueueRef           inAQ,
                                   AudioQueuePropertyID    inID) {
     STAudioPlayer* player = (__bridge STAudioPlayer *)inUserData;
-    UInt32 isRunning;
-    UInt32 size = sizeof(isRunning);
-    OSStatus result = AudioQueueGetProperty (inAQ, kAudioQueueProperty_IsRunning, &isRunning, &size);
-    [player setIsRunning:isRunning];
+    UInt32 isActived;
+    UInt32 size = sizeof(isActived);
+    OSStatus result = AudioQueueGetProperty (inAQ, kAudioQueueProperty_IsRunning, &isActived, &size);
+    [player setPlaying:isActived];
     
     if (player.delegate) {
-        if (isRunning) {
+        if (isActived) {
             [player.delegate onPlayStart:player];
         } else {
             [player.delegate onPlayStop:player];
         }
     }
     
-    if ((result == noErr) && (!isRunning))
+    if ((result == noErr) && (!isActived))
         [[NSNotificationCenter defaultCenter] postNotificationName: @"playbackQueueStopped" object: nil];
 }
 
 @implementation STAudioPlayer
 
-@synthesize audioConfigure = _audioConfigure;
-@synthesize delegate = _delegate;
-@synthesize isRunning = _isRunning;
-@synthesize isInitialized = _isInitialized;
-
-- (STAudioPlayer*)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        STAudioConfigure configure = { emMono, DEFAULT_SAMPLE_RATE, em8Bit};
-        [self setupAudioFormat:configure];
-        _isInitialized = NO;
-        _isRunning = NO;
+        _isReady = NO;
+        _isPlaying = NO;
+        _audioQueueBufferSize = 0;
+        self.musicPackages = NULL;
+        self.isMusicLooping = NO;
+        _isWantStop = NO;
+        _voiceVolume = 1.0;
     }
     return self;
 }
 
-- (STAudioPlayer*)initWithAudioConfigure:(STAudioConfigure)audioConfigure withBufferMaxSeconds:(Float32)seconds {
+- (instancetype)initWithAudioConfigure:(STAudioConfigure)audioConfigure withBufferMaxSeconds:(Float32)seconds {
     if (self = [self init]) {
-        [self setupAudioFormat:audioConfigure];
-        m_maxBufferSeconds = seconds;
+        [self setAudioConfigure:audioConfigure];
+        [self setBufferMaxSeconds:seconds];
+        [self setupAudioQueue];
     }
     return self;
 }
 
-- (void)setIsRunning:(BOOL)val {
-    _isRunning = val;
+- (void)setPlaying:(BOOL)val {
+    _isPlaying = val;
+}
+
+- (void)setBufferMaxSeconds:(Float32)seconds {
+    _bufferMaxSeconds = seconds;
 }
 
 - (BOOL)setupAudioQueue {
+    if (_isPlaying) {
+        NSLog(@"[Error]setupAudioQueue: audio queue is playing, please stop it before trying again. ");
+        return false;
+    }
+    
+    if (m_aq) {
+        NSLog(@"[Error]setupAudioQueue: You should call releaseAudioQueue first before playing!");
+        return NO;
+    }
+    
     OSStatus bRet = 0;
     memset(&m_valideBuffer, 0, sizeof(m_valideBuffer));
     
     do {
         bRet = AudioQueueNewOutput(&m_dataFormat, audioQueueOutputCallback, (__bridge void *)(self), CFRunLoopGetCurrent(), kCFRunLoopCommonModes, 0, &m_aq);
-        if (bRet) {
-            STLog(@"error: new output audio queue failed!");
+        if (bRet != noErr) {
+            NSLog(@"[Error]setupAudioAueue: new output audio queue failed!");
             break;;
         }
-    
-        m_bufferByteSize = [self getBufferSize:m_aq withStreamDescription:m_dataFormat withSecond:m_maxBufferSeconds];
-
+        
+        _audioQueueBufferSize = [self getBufferSize:m_aq withStreamDescription:m_dataFormat withSecond:self.bufferMaxSeconds];
+        
         bRet = AudioQueueAddPropertyListener(m_aq, kAudioQueueProperty_IsRunning, audioQueueRunningProc, (__bridge void*)self);
-        if (bRet) {
-            STLog(@"error: add property listener(for play back end call back) failed!");
+        if (bRet != noErr) {
+            NSLog(@"[Error]setupAudioAueue: add property listener(for play back end call back) failed!");
+            break;
         }
-
+        
         // 创建并初始化好buffer，但并不急着马上enqueue到audio queue中
-        for (int i = 0; i < g_cNumberBuffers; ++i) {
-            bRet = AudioQueueAllocateBuffer(m_aq, m_bufferByteSize, &m_aqBuffer[i]);
-            if (bRet) {
-                STLog(@"error: alloc audio queue buffer failed!");
+        for (int i = 0; i < QUEUE_BUFFER_NUMBER; ++i) {
+            bRet = AudioQueueAllocateBuffer(m_aq, (UInt32)self.audioQueueBufferSize, &m_aqBuffer[i]);
+            if (bRet != noErr) {
+                NSLog(@"[Error]setupAudioAueue: alloc audio queue buffer failed!");
                 break;
             }
             m_valideBuffer[i] = YES;
         }
-        if (bRet) {
-            break;
-        }
-    
-        bRet = AudioQueueSetParameter(m_aq, kAudioQueueParam_Volume, 1.0);
-        if (bRet) {
-            STLog(@"error: set audio volume property failed!");
+        
+        bRet = AudioQueueSetParameter(m_aq, kAudioQueueParam_Volume, _voiceVolume);
+        if (bRet != noErr) {
+            NSLog(@"[Warnning]setupAudioAueue:: set audio volume property failed!");
         }
         
-        _isInitialized = YES;
+        _isReady = YES;
         
         return YES;
     } while(0);
@@ -151,24 +169,29 @@ static void audioQueueRunningProc( void *              inUserData,
 }
 
 - (void)releaseAudioQueue {
-    for (int i = 0; i < g_cNumberBuffers; i++) {
-        if (m_valideBuffer[i]) {
-            AudioQueueFreeBuffer(m_aq, m_aqBuffer[i]);
-            m_aqBuffer[i] = NULL;
-        }
-        memset(&m_valideBuffer, 0, sizeof(m_valideBuffer));
+    if (_isPlaying) {
+        NSLog(@"[Error]releaseAudioQueue: audio queue is playing, please stop it before trying again. ");
+        return;
     }
     
     if (m_aq) {
+        for (int i = 0; i < QUEUE_BUFFER_NUMBER; i++) {
+            if (m_valideBuffer[i]) {
+                AudioQueueFreeBuffer(m_aq, m_aqBuffer[i]);
+                m_aqBuffer[i] = NULL;
+            }
+            memset(&m_valideBuffer, 0, sizeof(m_valideBuffer));
+        }
+        
         AudioQueueDispose(m_aq, true);
         m_aq = NULL;
     }
     
-    _isInitialized = NO;
+    _isReady = NO;
 }
 
 - (int)getValidateBufferIndex {
-    for (int i = 0; i < g_cNumberBuffers; i++) {
+    for (int i = 0; i < QUEUE_BUFFER_NUMBER; i++) {
         if (m_valideBuffer[i]) {
             return i;
         }
@@ -176,58 +199,105 @@ static void audioQueueRunningProc( void *              inUserData,
     return -1;
 }
 
-- (BOOL)checkAllBuffersValidate {
-    for (int i = 0; i < g_cNumberBuffers; i++) {
-        if (!m_valideBuffer[i]) {
-            return NO;
-        }
-    }
-    return YES;
+- (void)setValidateAllBuffer:(BOOL)val {
+    memset(&m_valideBuffer, val, sizeof(m_valideBuffer));
 }
 
 - (void)invalidateBuffer:(AudioQueueBufferRef)buffer withInvalidate:(BOOL)val {
-    for (int i = 0; i < g_cNumberBuffers; i++) {
+    for (int i = 0; i < QUEUE_BUFFER_NUMBER; i++) {
         if (m_aqBuffer[i] == buffer) {
             m_valideBuffer[i] = val;
         }
     }
 }
 
-- (BOOL)writeAudio:(const void*)bytes withLength:(unsigned long)length {
-    if (!_isInitialized) {
-        STLog(@"error: audio queue hasn't been initialized!");
+- (BOOL)writeQueue:(const void*)bytes withLength:(unsigned long)length {
+    if (!_isReady) {
+        NSLog(@"[Error]writeAudio: Did you forget to call setupAudioQueue before? ");
         return NO;
     }
     
     int index = [self getValidateBufferIndex];
     if (index == -1) {
         // newma todo: 处理一下当前没有可用的audio queue buffer的情况，目前是直接不忽略此段要播放的音频
+        NSLog(@"[Error]writeAudio: No more queue buffer is validate, perhaps you should think about increasing QUEUE_BUFFER_NUMBER");
         return NO;
+    }
+    
+    if (self.audioQueueBufferSize < length) {
+        length = self.audioQueueBufferSize;
+        NSLog(@"[Warning]writeAudio: Audio data length is out of size of %ld, outside part will be excluded!", (unsigned long)self.audioQueueBufferSize);
     }
     
     memcpy(m_aqBuffer[index]->mAudioData, bytes, length);
     m_aqBuffer[index]->mAudioDataByteSize = (UInt32)length;
-    AudioQueueEnqueueBuffer(m_aq, m_aqBuffer[index], 0, NULL);
-    
     m_valideBuffer[index] = NO;
+    AudioQueueEnqueueBuffer(m_aq, m_aqBuffer[index], 0, NULL);
     
     return YES;
 }
 
-- (BOOL)writeAudio:(NSData*)data {
-    return [self writeAudio:data.bytes  withLength:[data length]];
+- (BOOL)writeQueue:(NSData*)data {
+    return [self writeQueue:data.bytes  withLength:[data length]];
 }
 
-- (void)setupAudioFormat:(STAudioConfigure)audioConfigure {
-    m_dataFormat.mChannelsPerFrame = audioConfigure.channal;
-    m_dataFormat.mBytesPerFrame = m_dataFormat.mBytesPerPacket = audioConfigure.bit;
+- (BOOL)startMusic:(NSData *)music loop:(BOOL)isLooping {
+    if (_isPlaying) {
+        NSLog(@"[Error]writeAudio: Sorry, it is playing. You should stop it before!");
+        return NO;
+    }
+    
+    self.musicPackages = [[STAudioPackages alloc]initWithData:music packageSize:self.audioQueueBufferSize];
+    self.isMusicLooping = isLooping;
+    
+    for (int i = 0; i < QUEUE_BUFFER_NUMBER; i++) {
+        [self writeQueue:[self.musicPackages readNextPackage]];
+    }
+    
+    return [self startQueue];
+}
+
+- (void)continuePlay {
+    if (![self.musicPackages validate]) {  // play end
+
+        if (!self.isMusicLooping) {
+            [self stopQueue];    // stop when no looping play
+        } else {
+            [self.musicPackages rewind];
+            NSLog(@"[Debug]continuePlay: Start to play loop.");
+        }
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onPlayEnd:)]) {
+            [self.delegate onPlayEnd:self];
+        }
+        
+        if (!self.isMusicLooping) {
+            return;
+        }
+    }
+    
+    NSData* data = [self.musicPackages readNextPackage];
+    [self writeQueue:data];
+}
+
+- (void)clearMusic {
+    self.musicPackages = NULL;
+    self.isMusicLooping = NO;
+    
+    [self setValidateAllBuffer:YES];
+}
+
+- (void)setAudioConfigure:(STAudioConfigure)configure {
+    _audioConfigure = configure;
+    m_dataFormat.mChannelsPerFrame = configure.channal;
+    m_dataFormat.mBytesPerFrame = m_dataFormat.mBytesPerPacket = configure.bit;
     
     
     m_dataFormat.mFormatID         = kAudioFormatLinearPCM;
-    m_dataFormat.mSampleRate       = audioConfigure.sampleRate;
-    m_dataFormat.mChannelsPerFrame = audioConfigure.channal;
-    m_dataFormat.mBitsPerChannel   = audioConfigure.bit;
-    m_dataFormat.mBytesPerPacket   = m_dataFormat.mBytesPerFrame =  m_dataFormat.mChannelsPerFrame * (audioConfigure.bit >> 3);
+    m_dataFormat.mSampleRate       = configure.sampleRate;
+    m_dataFormat.mChannelsPerFrame = configure.channal;
+    m_dataFormat.mBitsPerChannel   = configure.bit;
+    m_dataFormat.mBytesPerPacket   = m_dataFormat.mBytesPerFrame =  m_dataFormat.mChannelsPerFrame * (configure.bit >> 3);
     m_dataFormat.mFramesPerPacket  = 1;
     m_dataFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
 }
@@ -235,7 +305,7 @@ static void audioQueueRunningProc( void *              inUserData,
 - (UInt32)getBufferSize:(AudioQueueRef)audioQueue withStreamDescription:(AudioStreamBasicDescription)asbDescript withSecond:(float)seconds {
     int maxPacketSize = asbDescript.mBytesPerPacket;
     if (maxPacketSize == 0) {   // VBR(变长音频数据)
-        STLog(@"error: don't support VBR");
+        NSLog(@"[Warnning]getBufferSize: Audio player don't support VBR audio frame");
         return MAX_BUFFER_SIZE;
     }
     
@@ -243,35 +313,41 @@ static void audioQueueRunningProc( void *              inUserData,
     return (numBytesForTime < MAX_BUFFER_SIZE) ? numBytesForTime : MAX_BUFFER_SIZE;
 }
 
-- (BOOL)start {
-    if (_isRunning) {
-        STLog(@"audio player has been running");
+- (BOOL)startQueue {
+    if (!_isReady) {
+        NSLog(@"[Error]start: Did you forget to call setupAudioQueue before?");
         return NO;
     }
     
-    if (!_isInitialized && ![self setupAudioQueue]){
-        STLog(@"setupAudioQueue failed!");
+    if (_isPlaying) {
+        NSLog(@"[Error]start: audio player is playing, please stop it before trying again!");
         return NO;
     }
     
-    AudioQueueReset(m_aq);
     AudioQueueStart(m_aq, 0);
     
     return YES;
 }
 
-- (void)stop {
+- (void)stopQueue {
+    if (!_isReady) {
+        NSLog(@"[Error]stop: Did you forget to call setupAudioQueue before?");
+        return;
+    }
     AudioQueueStop(m_aq,TRUE);
+    
+    // 停止时，playMusic信息清空
+    [self clearMusic];
 }
 
-- (void)pause {
-    if (_isRunning && _isInitialized) {
+- (void)pauseQueue {
+    if (_isPlaying && _isReady) {
         AudioQueuePause(m_aq);
     }
 }
 
-- (void)resume {
-    if (_isInitialized && !_isRunning) {
+- (void)resumeQueue {
+    if (_isReady && !_isPlaying) {
         AudioQueueStart(m_aq, 0);
     }
 }
@@ -281,3 +357,4 @@ static void audioQueueRunningProc( void *              inUserData,
 }
 
 @end
+
